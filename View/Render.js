@@ -258,7 +258,8 @@ function renderGameButtons() {
     checksContainer.appendChild(hChecks);
     checksContainer.appendChild(error);
     checksContainer.appendChild(eChecks);
-    setDiv.innerHTML = "<div id=\"relC\"><button id=\"settings\"></button><div class=\"settingsMenuContent\" id=\"setC\"><p id=\"gameOpt\"><b>Game Options:</b></p><select id=\"highOpt\"><option value=\"Grid-Highlighting\">Grid-Highlighting</option><option value=\"No-Highlighting\">No-Highlighting</option></select><select id=\"loseOpt\"><option value=\"Losing-Enabled\">Losing-Enabled<\/option><option value=\"Losing-Disabled\">Losing-Disabled</option></select><p id=\"gameOpt\">User Name:</p><input id=\"tInput\" value=\"e.g. myUser\" type=\"text\" name=\"userName\" maxlength=\"16\"><button id=\"save\">Save</button><button id=\"cancel\">Cancel</button></div></div>"
+    //Place all the innards of the settings menu
+    setDiv.innerHTML = "<div id=\"relC\"><button id=\"settings\"></button><div class=\"settingsMenuContent\" id=\"setC\"><p id=\"gameOpt\"><b>Game Options:</b></p><select id=\"highOpt\"><option value=\"Grid-Highlighting\">Grid-Highlighting</option><option value=\"No-Highlighting\">No-Highlighting</option></select><select id=\"loseOpt\"><option value=\"Losing-Enabled\">Losing-Enabled<\/option><option value=\"Losing-Disabled\">Losing-Disabled</option></select><p id=\"gameOpt\">Weather API:</p><span id=\"yahooOpt\"><input id=\"yInput\" type=\"checkbox\" name=\"yahoo\" value=\"Yes Please!\">Yahoo!</span><p id=\"gameOpt\">User Name:</p><input id=\"tInput\" value=\"e.g. myUser\" type=\"text\" name=\"userName\" maxlength=\"16\"><button id=\"save\">Save</button><button id=\"cancel\">Cancel</button></div></div>"
     hChecks.innerHTML = 
         "<span class=\"checksGone\">&#x2714</span><span class=\"checksGone\">&#x2714</span><span class=\"checksGone\">&#x2714</span>";
     eChecks.innerHTML = 
@@ -465,6 +466,7 @@ function saveSettings() {
     var textInput = document.getElementById("tInput");
     var highlight = document.getElementById("highOpt");
     var lose = document.getElementById("loseOpt");
+    var yahoo = document.getElementById("yInput");
     if((textInput.value != "") &&(textInput.value != "e.g. myUser")){
         userName = textInput.value; 
         renderUserName();
@@ -485,6 +487,11 @@ function saveSettings() {
         loseEnabled = true;
     } else {
         loseEnabled = false;
+    }
+    if(yahoo.checked == true){
+        document.getElementById("yahooApp").style.display = "block";
+    } else {
+        document.getElementById("yahooApp").style.display = "none";
     }
     //Now remove the panel
     removeSetMenu();

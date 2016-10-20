@@ -1,0 +1,149 @@
+{
+ "query": {
+  "count": 1,
+  "created": "2016-10-20T05:21:47Z",
+  "lang": "en-US",
+  "results": {
+   "channel": {
+    "units": {
+     "distance": "mi",
+     "pressure": "in",
+     "speed": "mph",
+     "temperature": "F"
+    },
+    "title": "Yahoo! Weather - Nome, AK, US",
+    "link": "http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-2460286/",
+    "description": "Yahoo! Weather for Nome, AK, US",
+    "language": "en-us",
+    "lastBuildDate": "Wed, 19 Oct 2016 09:21 PM AKDT",
+    "ttl": "60",
+    "location": {
+     "city": "Nome",
+     "country": "United States",
+     "region": " AK"
+    },
+    "wind": {
+     "chill": "21",
+     "direction": "338",
+     "speed": "14"
+    },
+    "atmosphere": {
+     "humidity": "55",
+     "pressure": "1001.0",
+     "rising": "0",
+     "visibility": "16.1"
+    },
+    "astronomy": {
+     "sunrise": "10:8 am",
+     "sunset": "7:23 pm"
+    },
+    "image": {
+     "title": "Yahoo! Weather",
+     "width": "142",
+     "height": "18",
+     "link": "http://weather.yahoo.com",
+     "url": "http://l.yimg.com/a/i/brand/purplelogo//uh/us/news-wea.gif"
+    },
+    "item": {
+     "title": "Conditions for Nome, AK, US at 08:00 PM AKDT",
+     "lat": "64.499474",
+     "long": "-165.405792",
+     "link": "http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-2460286/",
+     "pubDate": "Wed, 19 Oct 2016 08:00 PM AKDT",
+     "condition": {
+      "code": "31",
+      "date": "Wed, 19 Oct 2016 08:00 PM AKDT",
+      "temp": "29",
+      "text": "Clear"
+     },
+     "forecast": [
+      {
+       "code": "30",
+       "date": "19 Oct 2016",
+       "day": "Wed",
+       "high": "33",
+       "low": "27",
+       "text": "Partly Cloudy"
+      },
+      {
+       "code": "32",
+       "date": "20 Oct 2016",
+       "day": "Thu",
+       "high": "35",
+       "low": "26",
+       "text": "Sunny"
+      },
+      {
+       "code": "34",
+       "date": "21 Oct 2016",
+       "day": "Fri",
+       "high": "34",
+       "low": "28",
+       "text": "Mostly Sunny"
+      },
+      {
+       "code": "26",
+       "date": "22 Oct 2016",
+       "day": "Sat",
+       "high": "37",
+       "low": "32",
+       "text": "Cloudy"
+      },
+      {
+       "code": "23",
+       "date": "23 Oct 2016",
+       "day": "Sun",
+       "high": "37",
+       "low": "34",
+       "text": "Breezy"
+      },
+      {
+       "code": "11",
+       "date": "24 Oct 2016",
+       "day": "Mon",
+       "high": "40",
+       "low": "35",
+       "text": "Showers"
+      },
+      {
+       "code": "5",
+       "date": "25 Oct 2016",
+       "day": "Tue",
+       "high": "42",
+       "low": "40",
+       "text": "Rain And Snow"
+      },
+      {
+       "code": "39",
+       "date": "26 Oct 2016",
+       "day": "Wed",
+       "high": "42",
+       "low": "39",
+       "text": "Scattered Showers"
+      },
+      {
+       "code": "39",
+       "date": "27 Oct 2016",
+       "day": "Thu",
+       "high": "40",
+       "low": "39",
+       "text": "Scattered Showers"
+      },
+      {
+       "code": "11",
+       "date": "28 Oct 2016",
+       "day": "Fri",
+       "high": "41",
+       "low": "39",
+       "text": "Showers"
+      }
+     ],
+     "description": "<![CDATA[<img src=\"http://l.yimg.com/a/i/us/we/52/31.gif\"/>\n<BR />\n<b>Current Conditions:</b>\n<BR />Clear\n<BR />\n<BR />\n<b>Forecast:</b>\n<BR /> Wed - Partly Cloudy. High: 33Low: 27\n<BR /> Thu - Sunny. High: 35Low: 26\n<BR /> Fri - Mostly Sunny. High: 34Low: 28\n<BR /> Sat - Cloudy. High: 37Low: 32\n<BR /> Sun - Breezy. High: 37Low: 34\n<BR />\n<BR />\n<a href=\"http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-2460286/\">Full Forecast at Yahoo! Weather</a>\n<BR />\n<BR />\n(provided by <a href=\"http://www.weather.com\" >The Weather Channel</a>)\n<BR />\n]]>",
+     "guid": {
+      "isPermaLink": "false"
+     }
+    }
+   }
+  }
+ }
+}
