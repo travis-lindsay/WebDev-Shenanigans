@@ -53,7 +53,7 @@ function renderHowTo(){
     var startButton = document.createElement("div");
     startButton.classList.add("helpMenu");
     menuDiv.appendChild(startButton);
-    startButton.innerHTML = "<video id=\"helpvid\" width=\"100%\" height=\"500px\" controls><source src=\"../IMG/demoHowTo.mp4\" type=\"video/mp4\">Your browser does not support the video tag, please update your web browser to view the video.</video>";
+    startButton.innerHTML = "<video id=\"helpvid\" width=\"100%\" height=\"500px\" controls><source src=\"././IMG/demoHowTo.mp4\" type=\"video/mp4\">Your browser does not support the video tag, please update your web browser to view the video.</video>";
 }
 
 function removeOldStuff(nodeID){
@@ -94,7 +94,7 @@ function renderPickGame() {
     easyAnim.id = "easyAnimation";
     animCont.appendChild(easyAnim);
     //Add sun image
-    easyAnim.innerHTML = "<img src=\"../IMG/Sun2.png\" id=\"sun\"><img src=\"../IMG/Grass2.png\" id=\"grass1\"><img src=\"../IMG/Grass2.png\" id=\"grass2\"><img src=\"../IMG/bunny.png\" id=\"bunny\"><img src=\"../IMG/hammer.png\" id=\"hammer\"><img src=\"../IMG/wrenchy.png\" id=\"wrench\"><img src=\"../IMG/machine.png\" id=\"machine\"><img src=\"../IMG/flex.png\" id=\"flex\"><img src=\"../IMG/skull.png\" id=\"skull\"><img src=\"../IMG/dragonFace.png\" id=\"dragon\"><img src=\"../IMG/chainsaw.png\" id=\"chainsaw\"><img src=\"../IMG/bomb.png\" id=\"bomb\">"
+    easyAnim.innerHTML = "<img src=\"././IMG/Sun2.png\" id=\"sun\"><img src=\"././IMG/Grass2.png\" id=\"grass1\"><img src=\"././IMG/Grass2.png\" id=\"grass2\"><img src=\"././IMG/bunny.png\" id=\"bunny\"><img src=\"././IMG/hammer.png\" id=\"hammer\"><img src=\"././IMG/wrenchy.png\" id=\"wrench\"><img src=\"././IMG/machine.png\" id=\"machine\"><img src=\"././IMG/flex.png\" id=\"flex\"><img src=\"././IMG/skull.png\" id=\"skull\"><img src=\"././IMG/dragonFace.png\" id=\"dragon\"><img src=\"././IMG/chainsaw.png\" id=\"chainsaw\"><img src=\"././IMG/bomb.png\" id=\"bomb\">"
     
      //Create Buttons
     var button1 = document.createElement("button");

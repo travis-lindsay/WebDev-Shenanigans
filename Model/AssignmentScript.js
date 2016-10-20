@@ -399,10 +399,10 @@ function setSelectedCursor(num){ //Sets the cursor png to match the selected num
                      myTable.rows[i].cells[j].style.cursor = "default"
                  }
                  else{
-                   myTable.rows[i].cells[j].style.cursor = "url('../IMG/num"+selectedNumber+".png'), pointer";
+                   myTable.rows[i].cells[j].style.cursor = "url('././IMG/num"+selectedNumber+".png'), pointer";
                    //For IE / Edge
                     
-                    //myTable.rows[i].cells[j].style.cursor = "url('../IMG/num"+selectedNumber+".cur'), pointer";   
+                    //myTable.rows[i].cells[j].style.cursor = "url('././IMG/num"+selectedNumber+".cur'), pointer";   
                  }
                 
              }

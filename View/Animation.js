@@ -436,7 +436,7 @@ function animateBomb(){
                 var flameC = document.getElementById("easyAnimation");
                 var flameI = document.createElement("img");
                 flameI.id = "flame";
-                flameI.src = "../IMG/fire1.gif";
+                flameI.src = "././IMG/fire1.gif";
                 try {
                 flameC.appendChild(flameI);
                      }
@@ -476,7 +476,7 @@ function animateBomb(){
                     //re-set the bomb img
                     var bombI = document.createElement("img");
                     bombI.id = "bomb";
-                    bombI.src = "../IMG/bomb.png";
+                    bombI.src = "././IMG/bomb.png";
                     flameC.appendChild(bombI);
                  },1500);
             }
