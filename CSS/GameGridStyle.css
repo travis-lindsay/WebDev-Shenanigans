@@ -1,0 +1,903 @@
+/*CSS for all of the game pages styles, e.g. GameGrid.html*/
+
+html, body {
+    padding:0; 
+    margin:0;
+    background-image: url("../IMG/BackgroundOverlay2.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+    
+    /*-webkit-animation: moveBack 380s infinite;
+    animation: moveBack 380s infinite;*/
+}
+
+/* Chrome, Safari, Opera 
+@-webkit-keyframes moveBack {
+    50% {background-position: bottom;}
+}
+
+ Standard syntax 
+@keyframes moveBack {
+    50% {background-position: bottom;}
+}*/
+
+body {
+    background-color: whitesmoke;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+
+
+td {  
+    width: 61px;
+    height: 61px;
+    background-color: #ececec;
+    background-image: url("../IMG/SudokuElemBackgd4.png");
+    background-size:100% 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+table, td, tr {
+    border: 1.2px solid black;
+    border-collapse: collapse;
+    font-weight: bolder;
+    text-shadow: 0px 0px 25px oldlace;
+}
+
+.numCompleteGradient {
+    border-color:#027309;
+    transition-duration: 2s;
+}
+
+.leftEdge {
+    border-left-width: 3.5px;
+}
+
+.rightEdge {
+    border-right-width: 3.5px;
+}
+
+.topEdge {
+    border-top-width: 3.5px;
+}
+
+.topBorderEdge {
+    border-top-width: 5px;
+}
+
+.bottomBorderEdge {
+    border-bottom-width: 5px;
+}
+
+.rightBorderEdge {
+    border-right-width: 5px;
+}
+
+.leftBorderEdge {
+    border-left-width: 5px;
+}
+
+.sudokuGameGrid {
+    background-color: whitesmoke;
+    width: 550px;
+    height: 585px;
+    margin: auto;
+    margin-bottom: 1em;
+}
+
+#sudokuGameTable {
+    width: 100%;
+}
+
+.emptyCell:hover {background-color: darkgray}
+
+#idNum1 {
+    padding: 20px;
+    width: 50em;
+    margin: auto;
+}
+
+#idNum2 {
+    margin-left: auto;
+    width: 50%;
+    margin-top: 5em;
+    position: relative;
+    
+}
+
+#idNum3 {
+    margin-left: auto;
+    width: 50%;
+    margin-top: 5em;
+    position: relative;
+    
+}
+
+.content {
+    margin-top: 5em;
+}
+
+img {
+
+}
+
+.OtherIMG {
+    margin: auto;
+    display: block;
+    width: 80%;
+    padding: 5px;
+    border: 1px solid black;
+    outline-color: darkgray;
+    outline-style: groove;
+}
+
+.PageDiv {
+    margin: 100px;
+    height: 1000px;
+    background: gray;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.PageDiv2 {
+    margin: 100px;
+    height: 60em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 10px 20px 0 rgba(5, 5, 5, 0.19);
+    padding: 20px;
+    width: 50em;
+    margin: auto;
+}
+
+.PageDiv2Gradient {
+    background: linear-gradient(to right, rgba(200,200,200,0),
+    rgba(33, 32, 32, 0.4));
+    background: linear-gradient(to right, rgba(33, 32, 32, 0.4), rgba(32,32,32,.1));
+}
+
+.PageDiv3 {
+    margin: 100px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background: gray;
+    padding-bottom: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 20px;
+    width: 50em;
+    margin: auto;
+}
+
+.PageDiv4 {
+    margin-top: 9em;
+    margin-left:1em;
+    background-color: white;
+    background-blend-mode: darken;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    width: 10em;
+    float: left;
+    z-index; 1;
+    align-self: center;
+    vertical-align: middle;
+    opacity: .6;
+    border-radius: 10px;
+    position: absolute;
+    
+}
+
+.PageDiv4:hover {
+    margin-top: 9em;
+    margin-left:1em;
+    background-color: white;
+    background-blend-mode: darken;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    width: 10em;
+    float: left;
+    z-index; 1;
+    align-self: center;
+    vertical-align: middle;
+    opacity: .9;
+    border-radius: 10px;
+}
+
+.PageDiv5 {
+    margin-top: 20em;
+    margin-left:1em;
+    background-color: white;
+    background-blend-mode: darken;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    width: 10em;
+    float: left;
+    z-index; 1;
+    align-self: center;
+    vertical-align: middle;
+    opacity: .6;
+    border-radius: 10px;
+    position: absolute;
+    
+}
+
+.PageDiv5:hover {
+    margin-top: 20em;
+    margin-left:1em;
+    background-color: white;
+    background-blend-mode: darken;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    width: 10em;
+    float: left;
+    z-index; 1;
+    align-self: center;
+    vertical-align: middle;
+    opacity: .9;
+    border-radius: 10px;
+}
+
+.ThirdInfoDiv {
+    padding: 15px;
+    margin-top: 200px;
+}
+
+.pageHeader {
+    position: fixed;
+    background-image: url("../IMG/HeaderBackgd.png");
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+#titleStyle {
+    padding-bottom: 5px;
+    margin-left: 50px;
+    font-size: 60%;
+    color: white;
+}
+
+.numberOptions {
+    margin: auto;
+    margin-left: 8.5em;
+    width: 100%;
+    }
+
+.button1 {
+    border-radius: 12px;
+    color: darkgrey;
+    border: 2px solid black;
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    color: black;
+    display: inline-block;
+    -webkit-transition-duration: 0.5s; /* Safari */
+    transition-duration: 0.5s;
+    margin-right: .3em;
+    cursor: pointer;
+}
+
+.button1:hover {
+    background-color: #069310; /* Green */
+    color: white;
+    
+}
+
+.buttonClicked {
+    background-color: #069310; /* Green */
+    color: white;
+    border: 3px solid black;
+    border-radius: 12px;
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    display: inline-block;
+    transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s; /* Safari */
+    margin-right: .3em;
+}
+
+.buttonDisabled {
+    background-color: #a9a6a6;
+    color: #008017;
+    border: 3px solid #5e5f5e;
+    border-radius: 12px;
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    display: inline-block;
+    transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s; /* Safari */
+    margin-right: .3em;
+}
+
+#sameNumberHighlight {
+    color: #083803;
+    text-shadow: 1px 2px 15px white;
+}
+
+#hintHighlight {
+    color: orange;
+    text-shadow: 1px 2px 15px white;
+}
+
+.sameCellHighlight {
+    background-image: url("../IMG/cellHighlightBackground.png");
+    background-size:100% 100%;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s; /* Safari */
+}
+
+.wrongNumberHighlight {
+    background-image: url("../IMG/wrongNumBackd.png");
+    background-size:100% 100%;
+     transition-duration: .8s;
+    -webkit-transition-duration: 0.8s; /* Safari */
+}
+
+.loseGameHighlight {
+    background-image: url("../IMG/wrongNumBackd.png");
+    background-size:100% 100%;
+    transition-duration: .8s;
+    -webkit-transition-duration: 0.8s; /* Safari */
+    opacity: .7;
+}
+
+.loseOverlay {
+    z-index: 3;
+    position: absolute;
+    background: linear-gradient(to right, rgba(200,200,200,1), rgba(33, 32, 32, 0.6));
+    background: linear-gradient(to right, rgba(33, 32, 32, .95), rgba(32,32,32,.8));
+    width: 550px;
+    height: 585px;
+}
+
+.numberCompleteOverlay {
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+    position: absolute;
+    width: 550px;
+    height: 585px;
+    background-color: transparent;
+}
+#hintButton {
+    position: relative;
+    border-radius: 12px;
+    color: black;
+    border: 2px solid black;
+    font-size: 15px;
+    font-weight: bold;
+    height: 40px;
+    width: 100px;
+    text-align: center;
+    color: black;
+    display: inline-block;
+    -webkit-transition-duration: 0.5s; /* Safari */
+    transition-duration: 0.5s;
+    float: left;
+    cursor: pointer;
+}
+
+#hintButton:hover {
+     background-color: #069310; /* Green */
+    color: white;
+}
+
+.secondaryMenu {
+    margin-left: 11.5em;
+    padding-top: .5em;
+    height: 45px;
+    width: 450px;
+}
+
+#hintChecks {
+    border: auto;
+    padding: 0px;
+    margin-left: .5em;
+    border-radius: 12px;
+    color: #069310;
+    border: 2px solid black;
+    font-size: 15px;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    background: #b7b7b7;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    float: left;
+}
+
+
+
+#errorChunk {
+    border: auto;
+    padding: 0px;
+    margin-left: .5em;
+    border-radius: 12px;
+    color: black;
+    font-weight: bold;
+    border: 2px solid black;
+    font-size: 15px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    background: gray;
+    background-color: buttonface;
+    float: left;
+}
+
+#errorChecks {
+    border: auto;
+    padding: 0px;
+    margin-left: .5em;
+    border-radius: 12px;
+    color: red;
+    border: 2px solid black;
+    font-size: 15px;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    background: #b7b7b7;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    float: left;
+}
+
+.checksGone {
+    font-size: 15px;
+    font-weight: bold;
+    width: 80px;
+    text-align: center;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    opacity: .3;
+    color: gray;
+}
+
+.linkButton {
+    border-radius: 12px;
+    color: darkgrey;
+    border: 2px solid black;
+    font-size: 15px;
+    font-weight: bold;
+    height: 40px;
+    text-align: center;
+    color: black;
+    display: inline-block;
+    -webkit-transition-duration: 0.5s; /* Safari */
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+.linkButton:hover {
+    background-color: #069310; /* Green */
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+.pageBackDiv {
+    width: 50%;
+}
+
+.pageBackDiv2 {
+    width: 50%;
+}
+
+.middleChunk {
+    margin: auto;
+}
+
+.whiteText {
+    color: white;
+}
+
+.startMenu {
+    background-color: #191919;
+    width: 550px;
+    height: 589px;
+     box-shadow: 0 0px 15px 0 rgba(9, 0, 8, 1.9), 0 6px 20px 0 rgba(5, 5, 5, .19);
+}
+
+.pickDifficulty {
+    background-color: #191919;
+    width: 100%;
+    height: 100%;
+     box-shadow: 0 0px 15px 0 rgba(9, 0, 8, 1.9), 0 6px 20px 0 rgba(5, 5, 5, .19);
+    z-index: 3;
+}
+
+.gameStatHeaders {
+    display: inline;
+    width: 50%;
+    color: #969696;
+}
+
+#percentComplete {
+    color: white;
+}
+
+#totalTime {
+    color: white;
+}
+
+.animationContainer {
+    position: relative;
+    height: 400px;
+}
+
+.difAnimation {
+    position: absolute;
+    z-index: 0;
+}
+
+.startButtons {
+    display: block;
+    width: 15em;
+    height: 20em;
+    margin: auto;
+    margin-top: 1em;
+    text-align: center;
+    z-index: 1;
+}
+
+.helpMenu {
+    display: block;
+    width: 90%;
+    height: 26em;
+    margin: auto;
+    margin-top: 1em;
+    text-align: center;
+    z-index: 1;
+}
+
+#helpvid {
+    border: solid gray 5px;
+}
+
+.startButton1 {
+    border-radius: 12px;
+    font-weight: bold;
+    border: 5px solid #4a4848;
+    font-size: 20px;
+    width: 150px;
+    height: 80px;
+    text-align: center;
+    color: black;
+    display: inline-block;
+    -webkit-transition-duration: 0.5s; /* Safari */
+    transition-duration: 0.5s;
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+
+.startButton1:hover {
+    border-radius: 12px;
+    font-weight: bold;
+    border: 5px solid #4a4848;
+    font-size: 20px;
+    width: 150px;
+    height: 80px;
+    text-align: center;
+    color: white;
+    display: inline-block;
+    -webkit-transition-duration: 0.5s; /* Safari */
+    transition-duration: 0.5s;
+    margin-bottom: 1em;
+    background-color: dimgray;
+}
+
+.difficultyButtons {
+    position: relative;
+    border-radius: 12px;
+    font-weight: bold;
+    border: 5px solid #4a4848;
+    font-size: 20px;
+    width: 150px;
+    height: 80px;
+    text-align: center;
+    color: black;
+    display: inline-block;
+    transition-duration: 0.5s;
+    margin-bottom: 20px;
+    z-index: 3;
+    cursor: pointer;
+}
+
+
+
+#difficultyHard:hover {
+    font-size: 23px;
+    color: white;
+    background-color: #7b0202;
+}
+
+#difficultyMedium:hover {
+    font-size: 23px;
+    color: white;
+    background-color: #ce8314;
+}
+
+#difficultyEasy {
+    margin-top: 50px;
+}
+
+#difficultyEasy:hover {
+    margin-top: 50px;
+    font-size: 23px;
+    color: white;
+    background-color: #2ca20f;
+}
+
+#gameTitle {
+    color: white;
+    padding-top: .5em;
+    font-size: 5em;
+    margin-top: 0em;
+}
+
+#difficultyTitle {
+    color: white;
+    padding-top: 1em;
+    font-size: 3em;
+    margin-top: 0em;
+}
+
+.timer {
+    color: black;
+    font-weight: bolder;
+    border-radius: 12px;
+    border: 2px solid black;
+    font-size: 15px;
+    width: 60px;
+    height: 40px;
+    
+}
+
+.elapsedTime {
+    color: black;
+    font-weight: bolder;
+    border-radius: 12px;
+    border: 2px solid black;
+    font-size: 15px;
+    width: 60px;
+    height: 40px;
+    background-color: none;
+    position: absolute;
+    background-color: #b7b7b7;
+    margin-left: .4em;
+    
+}
+
+#sun {
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    left: 110px;
+    top: 45px;
+}
+
+#grass1 {
+    position: absolute;
+    left: 160px;
+    top: 80px;
+}
+
+#grass2 {
+    position: absolute;
+    left: 45px;
+    top: 46px;
+    transform: rotate(20deg);
+}
+
+#bunny {
+    position: absolute;
+    left: 65px;
+    top: 49.5px;
+    transform: rotate(-10deg);
+}
+
+#hammer {
+    position: absolute;
+    left: 125px;
+    top: 145px;
+    transform: rotate(-160deg);
+}
+
+#wrench {
+    position: absolute;
+    left: 55px;
+    top: 145px;
+    transform: rotate(160deg);
+}
+
+#machine {
+    position: absolute;
+    left: 45px;
+    top: 175px;
+    transform: rotate(0deg);
+}
+
+#skull {
+    position: absolute;
+    left: 45px;
+    top: 255px;
+    transform: rotate(0deg);
+}
+
+#dragon {
+    position: absolute;
+    left: 110px;
+    top: 255px;
+    transform: rotate(0deg);
+    height:70px;
+    width: 80px;
+}
+
+#chainsaw {
+    position: absolute;
+    left: 120px;
+    top: 270px;
+    transform: rotate(-55deg);
+}
+
+#bomb {
+    position: absolute;
+    left: 60px;
+    top: 260px;
+    transform: rotate(145deg);
+}
+
+#flame {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    left: -315px;
+    top: 225px;
+    transform: rotate(90deg);
+}
+
+#flex {
+    position: absolute;
+    left: 150px;
+    top: 165px;
+    height: 60px;
+    transform: rotate(0deg);
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+#settings {
+    position: relative;
+    background-image: url("../IMG/settings-icon1.png");
+    background-size: 20px, 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 12px;
+    border: 2px solid black;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    float: left;
+    margin-right:6px;
+    cursor: pointer;
+}
+
+#settings:hover {
+    background-color: gray;
+    -webkit-transition-duration: 0.5s; /* Safari */
+    transition-duration: 1s;
+}
+
+.settingsMenu {
+    position: relative;
+    display: inline-block;
+    float: left;
+    cursor: pointer;
+}
+
+.settingsMenuContent {
+    display: none;
+    position: absolute;
+    bottom: 0px;
+    background-color: gray;
+    border-radius: 5px;
+    border: 2px solid black;
+    width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 15px;
+    margin-top: 0px;
+    z-index: 1;
+}
+
+.settingsMenu:hover .settingsMenuContent {
+    display: block;
+}
+
+#gameOpt {
+    margin-top: 5px;
+    font-weight: bolder;
+}
+
+.opt {
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+input {
+    height: 15px;
+    width: 15px;
+}
+
+select {
+    width: 150px;
+    margin-bottom: 12px;
+    margin-left: 5px;
+    font-size: 15px;
+}
+
+#relC {
+    position: relative;
+}
+
+#tInput {
+    color: gray;
+    width: 150px;
+    margin-bottom: 12px;
+    margin-left: 5px;
+    font-size: 15px;
+}
+
+#save {
+    width: 50px;
+    height: 20px;
+    border-radius: 5px;
+    border: 2px solid black;
+    margin-right: 2px;
+    margin-top:10px;
+    cursor: pointer;
+}
+
+#cancel {
+    width: 60px;
+    height: 20px;
+    border-radius: 5px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.boldish {
+    font-weight: 600;
+}
+
+#completeNum {
+    font-size: 15em;
+    margin: auto;
+    text-shadow: 2px 2px 4px #000000;
+    transform: rotateY(0deg);
+    opacity: .05;
+}

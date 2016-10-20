@@ -2,24 +2,40 @@
 <html lang="en-US">
 <head>
     <title>Javascript Sudoku</title>
-    <link rel="stylesheet" href="/CSS/AssignmentCSS.css">
+    <link rel="stylesheet" href="./CSS/AssignmentCSS.css">
 </head>
 <body>
 
 <div class="pageHeader">
-    <h1>Assignment 4  <span id="titleStyle"> Name: Travis Lindsay  Class: CS 2550  Date: 10/06/2016 </span></h1>
+    <h1>Assignment 5  <span id="titleStyle"> Name: Travis Lindsay  Class: CS 2550  Date: 10/18/2016 </span></h1>
 </div>
-  
-
+    
 <div class="PageDiv" id=idNum1>
 	<div class="content">
-	<h2>MVC</h2>
-    <p>To navigate to the <span style="color: darkred">project checkpoint</span> page, click CheckPoint</p>
-	<p>To navigate to the Sudoku Game, (in its current state), click "Game Grid"</p>
+	<h2>AJAX</h2>
+    <p>To login, simply click the <span style="color: darkred">Login</span> button, which will bring you to the game grid</p>
+	<p>In case you don't feel like logging in, just click the Game Grid button to access the grid directly</p>
 	<p>For more on the Rules of Sudoku, click "Game Rules" </p> 
-        <a href="checkpoint.html"> <button class="linkButton" type="button">CheckPoint</button> </a>
+        
+        <div id="relC">
+            <button class="linkButton" id="loginBt" type="button">Login</button>
+            <a href="checkpoint.html"> <button class="linkButton" type="button">CheckPoint</button> </a>
         <a href="GameGrid.html"> <button class="linkButton" type="button">Game Grid</button> </a>
 	<a href="http://www.sudokuessentials.com/how_to_play_sudoku.html" target="blank"> <button class="linkButton" type="button">Game Rules</button> </a>
+            <div class="settingsMenuContent" id="setC">
+            <p id="gameOpt">User Name:</p>
+                <input id="tInput" value="e.g. Harpo" type="text" name="userName" maxlength="30">
+            <p id="gameOpt">Password:</p>
+                <input id="pInput" type="password" name="userName" maxlength="30">
+                <div id="errorMsg">
+                
+                </div>
+                <span id="loginButtons">
+                    <button id="login">Login</button>
+                    <button id="cancel">Cancel</button>
+                </span>
+            </div>
+        </div>
     
 
 </div>
@@ -56,8 +72,8 @@
     </ul>
     <h3>Game Object Examples:</h3>
     <div id="imgContainer">
-        <img class="objectIMG" src="/IMG/ObjectExample1.PNG">
-        <img class="objectIMG" src="/IMG/ObjectExample2.PNG">
+        <img class="objectIMG" src="./IMG/ObjectExample1.PNG">
+        <img class="objectIMG" src="./IMG/ObjectExample2.PNG">
     </div>
     
     <div id="otherStuff">
@@ -92,4 +108,5 @@
 
 
 </body>
+<script src="./View/login.js"></script>
 </html>

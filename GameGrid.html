@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <title>Javascript Sudoku</title>
-    <link rel="stylesheet" href="/CSS/GameGridStyle.css">
+    <link rel="stylesheet" href="./CSS/GameGridStyle.css">
 </head>
 <body>
     <div class="PageDiv4">
@@ -14,10 +14,20 @@
     
     <div class="PageDiv5">
     
+    <h3>Login Info:</h3>
+    <h6>Click the Product Design Info button if you wish to login again</h6>
+        <p class="boldish">User: <div id="user"></div></p>
+        <p class="boldish">Time: <div id="stamp"></div></p>
+    <button class="linkButton" onclick='clearLocalStorage()'>Clear Storage</button>
+    
+    </div>
+    
+    <!--<div class="PageDiv5">
+    
     <h3>Assignment 4 Stuff:</h3>
         <p class="boldish">-The "inputs" required for this assignment are located in the settings menu, (the small cog icon just below the Sudoku Puzzle) The 'Select' options change minor difficulty settings, and the 'Text' input changes the title of the game.</p>
         <p class="boldish">-And the Animations, are located on the "Select Difficulty" menu</p>
-    </div>
+    </div>-->
     
 <div class="PageDiv2 PageDiv2Gradient" id=idNum1>
     <div class="headerButtons">
@@ -25,7 +35,7 @@
         <a href="index.html"> <button class="linkButton" type="button">Project Design Info</button> </a>
         <a href="http://www.sudokuessentials.com/how_to_play_sudoku.html" target="blank"> <button class="linkButton" type="button">Game Rules</button> </a>
     <div>
-<h3><span id ="userN">Javascript</span> Sudoku Game: <span class="whiteText">Version 4.0.1</span></h3>
+<h3><span id ="userN">Javascript</span> Sudoku Game: <span class="whiteText">Version 5.0.1</span></h3>
         
 <div class = "sudokuGameGrid" id = "sudokuGrid">
     
@@ -79,10 +89,10 @@
 </div>
  
 
-<script src="/Model/AssignmentScript.js"></script>
-<script src="/Model/stopwatch.js"></script>
-<script src="/View/Animation.js"></script>
-<script src="/View/Render.js"></script>
+<script src="./Model/AssignmentScript.js"></script>
+<script src="./Model/stopwatch.js"></script>
+<script src="./View/Animation.js"></script>
+<script src="./View/Render.js"></script>
 <script>
 //Set Event listener for Game Menu button
     var gameMenuButton = document.getElementById("returnToMenu");
@@ -91,6 +101,38 @@
     function refreshPage() {
         location.reload(); //Simply refreshes the page
     }
+    
+    parseLocalStorage();
+    
+    function parseLocalStorage(){
+//Snag the local storage, and set the user and time values
+    var locSto = localStorage.getItem("cs2550timestamp");
+    //parse the username and timestamp from the string
+        if(locSto != null){
+           var index = locSto.indexOf(" ");
+            var userName = locSto.substr(0,index);
+            var timestamp = locSto.substr(index, locSto.length); 
+                    //Place the parsed variables in the mini-menu
+            var userSpan = document.getElementById("user");
+            var stampSpan = document.getElementById("stamp");
+            userSpan.innerHTML = userName;
+            stampSpan.innerHTML = timestamp;
+        }
+        else {
+            var userSpan = document.getElementById("user");
+            var stampSpan = document.getElementById("stamp");
+            userSpan.innerHTML = " ";
+            stampSpan.innerHTML = " ";
+        }
+
+    }
+
+//clear storage function
+    function clearLocalStorage(){
+        localStorage.clear(); //clears everything in local storage
+        parseLocalStorage(); //reset the visual display
+    }
+    
 </script>
 </body>
 </html>
