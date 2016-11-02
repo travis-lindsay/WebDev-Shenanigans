@@ -349,8 +349,28 @@ function renderGameWin(gameTime)
     //Set eventListeners for the two buttons
     var tryAgain = document.getElementById("try");
     var menu = document.getElementById("men");
-    tryAgain.addEventListener('click', pickGame, false);
+    tryAgain.addEventListener('click', resetGame, false);
     menu.addEventListener('click', returnMenu, false);
+}
+
+function resetGame(){
+    //remove the game lose panel
+    removeOldStuff("sudokuGrid");
+    //remove the game buttons
+    removeOldStuff("nums");
+    removeOldStuff("checks");
+    //re-render the game data
+    renderGame(runningGameInfo, numColumns, numRows);
+    //Reset the game variables
+    resetGameVariables();
+}
+
+function resetGameVariables(){
+    runningGameInfo.numLeft = 9; //reset the "how many left to win" variable to 9 numbers
+    selectedNumber = null;
+    numHints = 0;
+    numErrors = 0;
+    setSelectedCursor(null);
 }
 
 function renderGameLose(numRem, gameTime)
@@ -373,7 +393,7 @@ function renderGameLose(numRem, gameTime)
     //Set eventListeners for the two buttons
     var tryAgain = document.getElementById("try");
     var menu = document.getElementById("men");
-    tryAgain.addEventListener('click', pickGame, false);
+    tryAgain.addEventListener('click', resetGame, false);
     menu.addEventListener('click', returnMenu, false);
 }
 
@@ -432,7 +452,12 @@ function returnMenu() {
 
 function renderSetMenu() {
     var setMenu = document.getElementById("setC");
-    setMenu.style.display = "block";
+    if(setMenu.style.display == "block"){
+        setMenu.style.display = "none";
+    }
+    else{ //Display the menu
+        setMenu.style.display = "block";
+    }
 }
 
 function removeSetMenu() {

@@ -92,8 +92,8 @@ table, td, tr {
 
 .sudokuGameGrid {
     background-color: whitesmoke;
-    width: 550px;
-    height: 585px;
+    width: 549px;
+    height: 579px;
     margin: auto;
     margin-bottom: 1em;
 }

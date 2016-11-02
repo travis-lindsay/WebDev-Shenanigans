@@ -21,7 +21,7 @@ function pickGame() {
     var gameMode = this.innerText;
     switch(gameMode) {
         case "Easy":
-            var newGame = {difficulty:"Easy", numToWin:45, puzzleID:
+            var newGame = {difficulty:"Easy", numLeft:9, puzzleID:
                [[2, 4, 6, 8, 5, 7, 9, 1, 3],
                [1, 8, 9, 6, 4, 3, 2, 7, 5],
                [5, 7, 3, 2, 9, 1, 4, 8, 6],
@@ -45,7 +45,7 @@ function pickGame() {
             renderGame(newGame,numRows,numColumns);
             break;
         case "Medium":
-            var newGame = {difficulty:"Medium", numToWin:55, puzzleID:
+            var newGame = {difficulty:"Medium", numLeft:9, puzzleID:
                 [[8, 2, 7, 1, 5, 4, 3, 9, 6],
                [9, 6, 5, 3, 2, 7, 1, 4, 8],
                [3, 4, 1, 6, 8, 9, 7, 5, 2],
@@ -69,7 +69,7 @@ function pickGame() {
             renderGame(newGame,numRows,numColumns);
             break;            
         case "Hard":
-            var newGame = {difficulty:"Hard", numToWin:58, puzzleID:
+            var newGame = {difficulty:"Hard", numLeft:9, puzzleID:
                [[1, 8, 7, 2, 6, 4, 9, 5, 3],
                [2, 6, 3, 5, 7, 9, 4, 8, 1],
                [4, 9, 5, 1, 8, 3, 7, 6, 2],
@@ -163,7 +163,7 @@ function giveHint() {
             myTable.rows[hintNumberX].cells[hintNumberY].id = "";
             myTable.rows[hintNumberX].cells[hintNumberY].classList.remove("sameCellHighlight");
         },1500);
-    runningGameInfo.numToWin++;
+    //runningGameInfo.numToWin++;
     //Set another checkMark
     setCheckMark();
     
@@ -198,6 +198,8 @@ function setXMark() { //For the error marks
 }
 
 function correctNumber(myCell) {
+    //Play sound
+    document.getElementById("clickSound").play();
     //Update the cells class to be unhoverable
     myCell.classList.remove("emptyCell");
     //Highlight green if it is the right number
@@ -207,17 +209,48 @@ function correctNumber(myCell) {
     
     //Count the number of filled in numbers of the current selected number
     if(countSelectedNum() == 9) {
-        animateCompleteNum();
+        var tempNum = selectedNumber;
+        animateCompleteNum(); //Animates screen, showing that user completed all of one of the numbers
+        runningGameInfo.numLeft--; //decrement the number of numbers 1-9 left to complete
+        setTimeout(function(){ 
+        setNextUncompleteNum(tempNum); //Highlights the next "uncomplete" number
+        },3000);
     }
     
     //Decrement the number of spaces left before the puzzle is complete
-    runningGameInfo.numToWin--;
-    if(runningGameInfo.numToWin == 0) {
-        gameWin();
+    //runningGameInfo.numToWin--;
+    if(runningGameInfo.numLeft == 0) {
+        if(complete == true){
+            gameWin();
+        }
+        else {
+            setTimeout(function(){  
+                gameWin();
+            },3000);
+        }
     }
         
         
        
+}
+
+function setNextUncompleteNum(num){ //called after a number has been completed, auto-selects the next number 1-9 that is uncomplete
+    //var num = selectedNumber;
+    var nums = document.getElementById("nums");
+    for (var i = 0; i < 9; i++){
+        if(num >= 9){ //this allows it to check the numbers after the selected number first, then cycle back
+            num -= 9;
+        }
+        if(nums.children[num].className != "buttonDisabled"){
+            //if the button doesn't have a buttonDisabled class, select it!
+            setSelectedNumber(nums.children[num].innerText);
+            nums.children[num].className = "buttonClicked";
+            setSelectedCursor(selectedNumber);
+            highlightSameNums(selectedNumber);
+            break; //get out of here, if the next button has been selected
+        }
+        num++;
+    }
 }
 
 function countSelectedNum() {
@@ -225,7 +258,7 @@ function countSelectedNum() {
     var myTable = document.getElementById("sudokuGameTable");
     for (var i = 0; i < 9; i++){
         for (var j = 0; j < 9; j++){
-            if(myTable.rows[i].cells[j].innerText == selectedNumber){
+            if((myTable.rows[i].cells[j].innerText == selectedNumber) && (myTable.rows[i].cells[j].classList.contains("wrongNumberHighlight") != true)){
                 num++; //if the numbers match, increment the num variable
             }
         }
@@ -337,13 +370,15 @@ function gameLose() {
 
 
 function wrongNumber(myCell) {
-    
     //So that you can't overwrite already filled cells on accident
     if(myCell.innerText != "")
         return;
     
-     myCell.innerText = selectedNumber;
-     myCell.classList.add("wrongNumberHighlight");
+    //Play sound
+    document.getElementById("cowSound").play();
+    
+    myCell.innerText = selectedNumber;
+    myCell.classList.add("wrongNumberHighlight");
     
     //This sets a timeout so that you can see the previous highlighting for 
     //a bit before the highlighting css is taken away
@@ -399,10 +434,9 @@ function setSelectedCursor(num){ //Sets the cursor png to match the selected num
                      myTable.rows[i].cells[j].style.cursor = "default"
                  }
                  else{
-                   myTable.rows[i].cells[j].style.cursor = "url('././IMG/num"+selectedNumber+".png'), pointer";
-                   //For IE / Edge
-                    
-                    //myTable.rows[i].cells[j].style.cursor = "url('././IMG/num"+selectedNumber+".cur'), pointer";   
+                   //myTable.rows[i].cells[j].style.cursor = "url('././IMG/num"+selectedNumber+".png'), pointer";
+                   //For IE / Edge .ico or .cur file must be used
+                   myTable.rows[i].cells[j].style.cursor = "url('././IMG/num"+selectedNumber+".ico'), pointer";   
                  }
                 
              }
@@ -414,11 +448,15 @@ function setSelectedCursor(num){ //Sets the cursor png to match the selected num
 
 //Sets the selected number to the selectedNumber text
 function setSelectedNumber(num){
-    'use strict';
-    
-   selectedNumber = num.innerText;
+    if(num.innerText == undefined){
+        selectedNumber = num;
+    }
+    else {
+         selectedNumber = num.innerText;
+    }
 }
 
+//Updates the last cell that was clicked, for assignment 4
 function updateCordDisplay(c) {
     selectedColumn = c.cellIndex;
     selectedRow = c.parentNode.rowIndex;
