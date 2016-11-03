@@ -5,9 +5,10 @@ var activeReturn2 = false;
 var activeAnimation3 = false;
 var activeReturn3 = false;
 var bombAnim = false;
+var complete = false;
 
 function animateCompleteNum() {
-    var complete = false;
+    complete = false;
     //Before deselecting the selectedNumber variable
     //Add the number element
     var num = document.createElement("div");

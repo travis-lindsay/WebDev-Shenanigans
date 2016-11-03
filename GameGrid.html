@@ -83,9 +83,42 @@
 
 </div>
         
+    
+        <div id="yahooApp">
 
-
-
+            <div id="yahooContent">
+                 <div id="yahooLogo">
+                <a href="https://www.yahoo.com/?ilc=401" target="_blank"> <img src="https://poweredby.yahoo.com/white.png" width="134" height="29"/> </a>
+            </div>
+                <a class="onTop" href="https://weather.yahoo.com" target="_blank">
+                <!--To be filled in by API call-->
+                <div id="weather1">
+                    <span id="temperature">50&deg</span>
+                    <span id="location">Provo, UT</span>
+                    <img id="wIMG" src="http://l.yimg.com/a/i/us/we/52/34.gif">
+                </div>
+                <div id="weather2">
+                    <span class="wItems" id="date">Wed, 19 Oct 2016 10:00 PM PDT</span>
+                    <span class="wItems" id="humidity">Humidity: <span id="innerH">60</span>%</span>
+                    <span class="wItems" id="text">Clear</span>
+                </div>
+               </a>
+            </div>
+            
+        </div>
+        
+    
+<!--Test of the audio tag feature-->
+<audio id="clickSound">
+    <source src="./IMG/Sounds/Tiny%20Button%20Push-SoundBible.com-513260752.mp3" type="audio/mpeg">    
+</audio>
+<audio id="errorSound">
+    <source src="./IMG/Sounds/Computer%20Error%20Alert-SoundBible.com-783113881.mp3" type="audio/mpeg">    
+</audio>
+<audio id="cowSound">
+    <source src="./IMG/Sounds/Single Cow-SoundBible.com-2051754137.mp3" type="audio/mpeg">    
+</audio>
+        
 </div>
  
 
@@ -134,5 +167,27 @@
     }
     
 </script>
+
+<!--testing the yahoo API-->
+<script>
+  var callbackFunction = function(yahooData) {
+    var temp = yahooData.query.results.channel.item.condition.temp;
+    var tDiv = document.getElementById("temperature");
+    tDiv.innerHTML = temp + "&deg";
+    var dTime = document.getElementById("date");
+    dTime.innerHTML = yahooData.query.results.channel.item.condition.date;
+    var hum = document.getElementById("innerH");
+    hum.innerHTML = yahooData.query.results.channel.atmosphere.humidity;
+    var cond = document.getElementById("text");
+    cond.innerHTML = yahooData.query.results.channel.item.condition.text;
+    var url = yahooData.query.results.channel.item.description;
+    var res = url.match(/src=\"(.+)\"/);
+    document.getElementById("wIMG").src = res[1];
+      
+  };
+</script>
+
+<script src="https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='provo, ut')&format=json&callback=callbackFunction"></script>
+
 </body>
 </html>
