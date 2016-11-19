@@ -3,7 +3,7 @@
 html, body {
     padding:0; 
     margin:0;
-    background-image: url("../IMG/BackgroundOverlay2.png");
+    background-image: url("../IMG/BackgroundOverlay3.png");
     background-repeat: no-repeat;
     background-position: top;
     background-attachment: fixed;
@@ -127,7 +127,7 @@ p {
     padding: 20px;
     width: 50em;
     margin: auto;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(32,32,32,.1));
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(32,32,32,.2));
 }
 
 .PageDiv3 {
@@ -140,6 +140,10 @@ p {
     padding: 20px;
     width: 50em;
     margin: auto;
+}
+
+#docDiv3 {
+    padding-top: 100px;
 }
 
 .PageDiv4 {
@@ -421,4 +425,39 @@ input {
     color: darkred;
 }
 
+#docHeader {
+    position: fixed;
+    background: linear-gradient(to bottom, #09b515, rgba(95, 101, 96, 0.1));
+    margin-top: 0px;
+    text-align: center;
+    width: 100%;
+    background-color:#0a4b01;
+    border-bottom: 3px solid black;
+    z-index: 1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#homeBt {
+    width: 40px;
+    float: left;
+    padding-top: 15px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.black {
+    color: black;
+}
+
+.green {
+    color: green;
+}
+
+.slightlyBig {
+    font-size: 20px;
+}
+
+#doc {
+    
+}
 

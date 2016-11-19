@@ -11,9 +11,9 @@ function renderStartMenu() {
     menuDiv.id = "startMenu";
     startPoint.appendChild(menuDiv);
     //TODO, render html for menu
-    var gameTitle = document.createElement("h1");
-    gameTitle.id = "gameTitle";
-    gameTitle.innerText = "SUDOKU";
+    var gameTitle = document.createElement("img");
+    gameTitle.id = "titleIMG";
+    gameTitle.src = "./IMG/Logo4.png";
     menuDiv.appendChild(gameTitle);
     var startButton = document.createElement("div");
     startButton.classList.add("startButtons");
@@ -58,6 +58,9 @@ function renderHowTo(){
 
 function removeOldStuff(nodeID){
     var sudokuGame = document.getElementById(nodeID);
+    if(sudokuGame == undefined){
+        return; //Just in case a null value was passed in
+    }
     var innerChild = sudokuGame.firstChild;
     while(innerChild) {
         sudokuGame.removeChild(innerChild);
@@ -117,6 +120,7 @@ function renderPickGame() {
     button1.addEventListener('click', pickGame, false);
     button1.addEventListener('mouseover', easyAnimation, false);
     button1.addEventListener('mouseleave', easyReturnAnimation, false);
+    button1.addEventListener('contextmenu', randomGeneration, false);
     button2.addEventListener('click', pickGame, false);
     button2.addEventListener('mouseover', mediumAnimation, false);
     button2.addEventListener('mouseleave', mediumReturnAnimation, false);
@@ -125,6 +129,20 @@ function renderPickGame() {
     button3.addEventListener('mouseleave', hardReturnAnimation, false);
 
 }
+
+/*//test render for canvas images
+function renderCanvasImages(){
+    var startPoint = document.getElementById("sudokuGrid");
+    var imgDiv = document.createElement("div");
+    imgDiv.id = "canvasImages";
+    startPoint.appendChild(imgDiv);
+    for(var i = 1; i <= 9; i++){ //create all 9 number images and add their according id's
+        var imgTag = document.createElement("IMG");
+        imgTag.src = "./IMG/num" + i + ".ico";
+        imgTag.id = "img" + i;
+        imgDiv.appendChild(imgTag);
+    }
+}*/
 
 //Test render html table with javacript, with params for grid width
 function renderGame(gameInfo,x,y) {
@@ -136,6 +154,11 @@ function renderGame(gameInfo,x,y) {
     renderGameButtons();
     
     var startPoint = document.getElementById("sudokuGrid");
+    //var canvasEl = document.createElement("canvas");
+    //Create canvas with the device resolution.
+    var canvasEl = createHighDefCanvas(549, 579);
+    canvasEl.id = "canvasGraphic";
+    startPoint.appendChild(canvasEl);
     var newTable = document.createElement("table");
     newTable.id = "sudokuGameTable";
     startPoint.appendChild(newTable);
@@ -168,6 +191,7 @@ function renderGame(gameInfo,x,y) {
             newTable.rows[t].insertCell(u);
             //Add the event listener to the cell
             newTable.rows[t].cells[u].addEventListener('click', checkValidNumber, false);
+            newTable.rows[t].cells[u].addEventListener('contextmenu', cheat, false);
             //Add the number for the puzzle, if available
             if(gameInfo.puzzleToLoad[t][u] != 0)
                 {

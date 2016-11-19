@@ -3,25 +3,29 @@
 <head>
     <title>Javascript Sudoku</title>
     <link rel="stylesheet" href="./CSS/AssignmentCSS.css">
+    <link rel="icon" type="image/x-icon" href="./IMG/num9.ico" >
 </head>
 <body>
 
-<div class="pageHeader">
-    <h1>Assignment 5  <span id="titleStyle"> Name: Travis Lindsay  Class: CS 2550  Date: 10/18/2016 </span></h1>
+<div id="docHeader">
+    <h1>Final Project  <span id="titleStyle"> Name: Travis Lindsay  Class: CS 2550  Date: 11/28/2016 </span></h1>
 </div>
     
 <div class="PageDiv" id=idNum1>
 	<div class="content">
-	<h2>AJAX</h2>
-    <p>To login, simply click the <span style="color: darkred">Login</span> button, which will bring you to the game grid</p>
-	<p>In case you don't feel like logging in, just click the Game Grid button to access the grid directly</p>
-	<p>For more on the Rules of Sudoku, click "Game Rules" </p> 
+	<h2>JavaScript Sudoku Game</h2>
+        <p>&#10097 In case you don't feel like logging in, just click the <span style="color: darkred">Game Grid</span> button to access the grid directly</p>
+    <p>&#10097 To login, simply click the <span style="color: darkred">Login</span> button, which will bring you to the game grid</p>
+	<p>&#10097 For more on the Rules of Sudoku, click "Game Rules" </p>
+    <p>&#10097 For documentation on the implementation of the project click <span style="color: darkred">Documentation</span></p>
         
         <div id="relC">
             <button class="linkButton" id="loginBt" type="button">Login</button>
             <a href="checkpoint.html"> <button class="linkButton" type="button">CheckPoint</button> </a>
         <a href="GameGrid.html"> <button class="linkButton" type="button">Game Grid</button> </a>
 	<a href="http://www.sudokuessentials.com/how_to_play_sudoku.html" target="blank"> <button class="linkButton" type="button">Game Rules</button> </a>
+            <a href="documentation.html">
+            <button class="linkButton" type="button">Documentation</button> </a>
             <div class="settingsMenuContent" id="setC">
             <p id="gameOpt">User Name:</p>
                 <input id="tInput" value="e.g. Harpo" type="text" name="userName" maxlength="30">

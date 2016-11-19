@@ -3,6 +3,7 @@
 <head>
     <title>Javascript Sudoku</title>
     <link rel="stylesheet" href="./CSS/GameGridStyle.css">
+    <link rel="icon" type="image/x-icon" href="./IMG/num9.ico" >
 </head>
 <body>
     <div class="PageDiv4">
@@ -22,6 +23,17 @@
     
     </div>
     
+    <div class="PageDiv6">
+    
+    <h3>Load JSON:</h3>
+    <h6>Click the difficulty buttons to load via AJAX the JSON file</h6>
+    <button class="linkButton2" id="eBt" onclick='getJSONFile'>Easy - JSON</button>
+    <button class="linkButton2" id="mBt" onclick='getJSONFile'>Medium - JSON</button>
+    <button class="linkButton2" id="hBt" onclick='getJSONFile'>Hard - JSON</button>
+    <button class="linkButton2" id="cBt" onclick='canvasAnim'>CanvasTest</button>
+    
+    </div>
+    
     <!--<div class="PageDiv5">
     
     <h3>Assignment 4 Stuff:</h3>
@@ -35,9 +47,13 @@
         <a href="index.html"> <button class="linkButton" type="button">Project Design Info</button> </a>
         <a href="http://www.sudokuessentials.com/how_to_play_sudoku.html" target="blank"> <button class="linkButton" type="button">Game Rules</button> </a>
     <div>
-<h3><span id ="userN">Javascript</span> Sudoku Game: <span class="whiteText">Version 5.0.1</span></h3>
+<h3><span id ="userN">Javascript</span> Sudoku Game: <span class="whiteText">Version 6.0.1</span></h3>  
         
-<div class = "sudokuGameGrid" id = "sudokuGrid">
+<div class = "sudokuGameGrid" id = "sudokuGrid" oncontextmenu="return false;">
+    
+    <!--Canvas Test    
+    <canvas id="canvasGraphic"></canvas>
+    Canvas Test --> 
     
 <!--    <table id="sudokuGameTable"><tbody><tr class="topBorderEdge"><td class="leftBorderEdge">2</td><td>4</td><td class="rightEdge"></td><td class="leftEdge"></td><td></td><td class="rightEdge">7</td><td class="leftEdge"></td><td></td><td class="rightBorderEdge"></td></tr><tr><td class="leftBorderEdge">1</td><td>8</td><td class="rightEdge">9</td><td class="leftEdge"></td><td></td><td class="rightEdge"></td><td class="leftEdge">2</td><td>7</td><td class="rightBorderEdge">5</td></tr><tr><td class="leftBorderEdge">5</td><td></td><td class="rightEdge">3</td><td class="leftEdge"></td><td></td><td class="rightEdge">1</td><td class="leftEdge">4</td><td></td><td class="rightBorderEdge"></td></tr><tr class="topEdge"><td class="leftBorderEdge"></td><td>1</td><td class="rightEdge"></td><td class="leftEdge"></td><td>2</td><td class="rightEdge"></td><td class="leftEdge"></td><td></td><td class="rightBorderEdge">7</td></tr><tr><td class="leftBorderEdge"></td><td></td><td class="rightEdge">7</td><td class="leftEdge"></td><td></td><td class="rightEdge"></td><td class="leftEdge"></td><td>2</td><td class="rightBorderEdge"></td></tr><tr><td class="leftBorderEdge">9</td><td>5</td><td class="rightEdge"></td><td class="leftEdge"></td><td></td><td class="rightEdge"></td><td class="leftEdge">3</td><td>4</td><td class="rightBorderEdge"></td></tr><tr class="topEdge"><td class="leftBorderEdge">7</td><td></td><td class="rightEdge">4</td><td class="leftEdge"></td><td></td><td class="rightEdge">2</td><td class="leftEdge">8</td><td>9</td><td class="rightBorderEdge"></td></tr><tr><td class="leftBorderEdge">3</td><td></td><td class="rightEdge"></td><td class="leftEdge"></td><td></td><td class="rightEdge">8</td><td class="leftEdge"></td><td>5</td><td class="rightBorderEdge"></td></tr><tr class="bottomBorderEdge"><td class="leftBorderEdge">8</td><td></td><td class="rightEdge">5</td><td class="leftEdge">7</td><td>1</td><td class="rightEdge">4</td><td class="leftEdge">6</td><td></td><td class="rightBorderEdge"></td></tr></tbody></table>-->
     
@@ -112,12 +128,17 @@
 <audio id="clickSound">
     <source src="./IMG/Sounds/Tiny%20Button%20Push-SoundBible.com-513260752.mp3" type="audio/mpeg">    
 </audio>
+<audio id="clickSound2">
+    <source src="./IMG/Sounds/Tiny%20Button%20Push-SoundBible.com-513260752.mp3" type="audio/mpeg">    
+</audio>
 <audio id="errorSound">
     <source src="./IMG/Sounds/Computer%20Error%20Alert-SoundBible.com-783113881.mp3" type="audio/mpeg">    
 </audio>
 <audio id="cowSound">
     <source src="./IMG/Sounds/Single Cow-SoundBible.com-2051754137.mp3" type="audio/mpeg">    
 </audio>
+        
+
         
 </div>
  
@@ -126,10 +147,22 @@
 <script src="./Model/stopwatch.js"></script>
 <script src="./View/Animation.js"></script>
 <script src="./View/Render.js"></script>
+<script src="./Model/RandomPuzzle.js"></script>
+<script src="./View/Canvas.js"></script>
 <script>
 //Set Event listener for Game Menu button
     var gameMenuButton = document.getElementById("returnToMenu");
     gameMenuButton.addEventListener('click', refreshPage, false);
+    
+    //set event listeners for JSON buttons
+    var button1 = document.getElementById("eBt");
+    button1.addEventListener('click', getJSONFile, false);
+    button1 = document.getElementById("mBt");
+    button1.addEventListener('click', getJSONFile, false);
+    button1 = document.getElementById("hBt");
+    button1.addEventListener('click', getJSONFile, false);
+    button1 = document.getElementById("cBt");
+    button1.addEventListener('click', canvasAnim, false);
     
     function refreshPage() {
         location.reload(); //Simply refreshes the page
