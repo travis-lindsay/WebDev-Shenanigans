@@ -10,6 +10,7 @@ var runningGameInfo;
 var currentTime = "00:00";
 var selectedRow = 0;
 var selectedColumn = 0;
+var gameLoseInProgress = false;
 //End global variables
 
 
@@ -317,6 +318,12 @@ function gameWin() {
 
 
 function gameLose() {
+    if(gameLoseInProgress == true){
+        return;
+    }
+    else {
+        gameLoseInProgress = true; //set the variable so that it doesn't duplicate the animation if multiple wrong numbers were selected
+    }
     //Select the empty squares, and give them the same background as an errored td
     var numRemainingSquares = 0;
     var incompleteNums = document.getElementsByTagName("td");
@@ -373,7 +380,7 @@ function gameLose() {
     setTimeout(function(){
     renderGameLose(numRemainingSquares, totalTime);
     },3500);
-        
+    gameLoseInProgress = false; //reset the game lose variable in case the game resets  
     //alert("You lose!");
 }
 

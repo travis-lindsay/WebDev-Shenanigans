@@ -1,5 +1,17 @@
 /*CSS for all of the game pages styles, e.g. GameGrid.html*/
-
+@media screen and (max-width: 1000px) {
+            .PageDiv6 {
+                display: none;
+                color: green;
+            }
+            .PageDiv4 {
+                display: none;
+            }
+            .PageDiv5 {
+                display: none;
+            }
+    
+        }
 html, body {
     position: relative;
     z-index: 0;
@@ -1060,3 +1072,5 @@ select {
     z-index: -1;
     position: absolute;
 }
+
+

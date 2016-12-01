@@ -53,7 +53,7 @@
          <li class="ExtraPadding"><b><span class="slightlyBig">Use of XMLHttpRequest to load JSON or XML game data that is displayed on the grid page (<span class="green">20</span> pts)</span></b>
          <p class="black">&#10097 For detailed documentation on how this was implemented read the separate readme.txt file dedicated to the implementation of this, (located in the base folder of the project).</p></li>
          
-         <li class="ExtraPadding"><b><span class="slightlyBig">	Incorporates HTML 5 audio tags, video tags, canvas, or local storage (<span class="green">20</span> pts):</span></b><br>The How To Play menu has an HTML 5 video tag, which displays a short tutorial video. Additionally, the game has various audio tags that are triggered by clicking the cells of the table.</li>
+         <li class="ExtraPadding"><b><span class="slightlyBig">	Incorporates HTML 5 audio tags, video tags, canvas, or local storage (<span class="green">20</span> pts):</span></b><br>The How To Play menu has an HTML 5 video tag, which displays a short tutorial video. Additionally, the game has various audio tags that are triggered by clicking the cells of the table, (and losing the game creates a canvas animation, explained further at the bottom of the page).</li>
          
          <li class="ExtraPadding"><b><span class="slightlyBig">Game logic code (<span class="green">120</span> pts):</span></b>
          <p class="black">&#10097 The majority of the game logic code is contained in the /Model/AssignmentScript.js file. Here are some example functions that handle base functionality:</p>
@@ -66,6 +66,11 @@
                  <li><b>gameLose():</b> Stops game functionality, saves game data, and sends game data to a gameLose animation function.</li>
              </ul>
          <p class="black">&#10097 Additional logic for other features of the game, (that haven't been mentioned yet), include the animation logic in the /View/Animation.js file, the timer logic in the /Model/stopwatch.js file, and some experimental random puzzle generation logic in the /Model/RandomPuzzle.js file. </p>
+         </li>
+         
+         <li class="ExtraPadding"><b><span class="slightlyBig">Extra Credit Worthy Stuff (<span class="green">...</span> pts?):</span></b>
+         <p class="black">&#10097 When losing the game, a <b>canvas</b> animation is triggered, which duplicates all of the numbers on the board, and turns them into canvas objects, and animates them dropping from the board. The canvas animation code can be found in the /View/Canvas.js file</p>
+         <p class="black">&#10097 An unrequired feature that is in the project is linking to the Yahoo Weather <b>API</b>, which parses a JSON response from Yahoo containing weather information, (this feature can be seen by enabling the Yahoo API setting from the game grid 'Settings' menu).</p>
          </li>
          
          
