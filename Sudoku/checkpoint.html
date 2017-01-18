@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Javascript Sudoku</title>
+    <link rel="stylesheet" href="./CSS/AssignmentCSS.css">
+</head>
+<body>
+
+<div class="pageHeader">
+    <h1>Assignment 4 - CheckPoint  <span id="titleStyle"> Name: Travis Lindsay  Class: CS 2550  Date: 10/06/2016 </span></h1>
+</div>
+  
+
+<div class="PageDiv" id=idNum1>
+	<div class="content">
+	<h2>Project Checkpoint</h2>
+    <p>Welcome to the project checkpoint page!</p>
+    <p>The following is a brief description of the current progresss of the Sudoku game</p>
+        <a href="GameGrid.html"> <button class="linkButton" type="button">Game Grid</button> </a>
+	<a href="http://www.sudokuessentials.com/how_to_play_sudoku.html" target="blank"> <button class="linkButton" type="button">Game Rules</button> </a>
+        <a href="index.html"> <button class="linkButton" type="button">Project Design Info</button> </a>
+    
+        <h3>The following functions/Methods have been fully implemented:</h3>
+
+</div>
+</div>
+    
+    <div class="PageDiv2">
+     <ul>
+        <li class="ExtraPadding"><b>pickGame():</b><br>This function takes the game difficulty value picked by the user, and create a game object with the associated values for the difficulty (easy, medium, or hard). </li>
+        <li class="ExtraPadding"><b>giveHint():</b><br>This function finds a randomly generated blank spot in the sudoku grid, place a value in it, and increment the numHints variable. </li>
+        <li class="ExtraPadding"><b>checkValidNumber():</b><br>This function takes the number just inserted into the cell of the table, and check it against the two dimensional array of the correct numbers for that particular puzzle. </li>
+        <li class="ExtraPadding"><b>correctNumber():</b><br>This function is called if the inserted number is in the correct place. It decrements the number of cells left over until the game has been won.</li>
+        <li class="ExtraPadding"><b>wrongNumber():</b><br>This function is called if the inserted number is in the incorrect place. It discards the number, and increase the number of errors in the numCurErrors variable.</li>
+        <li class="ExtraPadding"><b>checkGameWin():</b><br>This function is called from the correctNumber() function, to update and check the numToWin variable to see if the game is now complete.</li>
+        <li class="ExtraPadding"><b>checkGameLose():</b><br>This function is called from the wrongNumber() function, to check the numErrors variable against the max NUMERRORS constant to see if the game is over.</li>
+        <li class="ExtraPadding"><b>gameWin():</b><br>This function is called from the checkGameWin function if the game has been won. It takes the game statistics and resets the game variables, then calls a render function to render the game win overlay.</li>
+        
+        </ul>
+    </div>
+     <div class="PageDiv3" >
+        <h2>Other completed features:</h2>
+        <p>The following features were not described in the original design, but have been implemented to enhance game play and appearance.</p>
+    </div>
+    <div class="PageDiv2">
+        <ul>
+            <li class="ExtraPadding"><b>Game Menus:</b><br>Start and Pick difficulty menus have been implemented fully with graphics, and halfway functioning buttons.</li>
+            <li class="ExtraPadding"><b>Animations:</b><br>The Pick Difficulty menu has implemented animations for both onHover and onMouseLeave events for all three difficulty buttons.</li>
+            <li class="ExtraPadding"><b>Sudoku Buttons:</b><br>The Sudoku Game Grid has a completed "Tool Bar" complete with the Numbers, Timer, Settings, Hints, and Error Tracking. All of the buttons have been implemented fully.</li>
+            <li class="ExtraPadding"><b>Game Settings:</b><br>The Sudoku Game Grid Settings button comes with implemented options to adjust minor difficulty settings such as toggling the "Grid-Highlighting" and the ability to lose the game.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

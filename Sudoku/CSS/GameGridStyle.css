@@ -27,6 +27,13 @@ html, body {
     animation: moveBack 380s infinite;*/
 }
 
+#homeBt {
+    width: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+}
+
 /* Chrome, Safari, Opera 
 @-webkit-keyframes moveBack {
     50% {background-position: bottom;}
@@ -540,6 +547,15 @@ img {
     -webkit-transition-duration: 0.5s; /* Safari */
     transition-duration: 0.5s;
     cursor: pointer;
+    float: left;
+    position: relative;
+    margin-left: 4px;
+}
+
+.headerButtons{
+    width: 100%;
+    height: 50px;
+    position: relative;
 }
 
 .linkButton:hover {
