@@ -1,112 +1,95 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <title>Javascript Sudoku</title>
-    <link rel="stylesheet" href="./CSS/AssignmentCSS.css">
+    <title>tlindsay</title>
+    <link rel="icon" type="image/x-icon" href="./IMG/num9.ico" >
+    <link rel="stylesheet" href="./CSS/tlindsay.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="./Script/homeScript.js"></script>
 </head>
 <body>
 
-<div class="pageHeader">
-    <h1>Assignment 5  <span id="titleStyle"> Name: Travis Lindsay  Class: CS 2550  Date: 10/18/2016 </span></h1>
-</div>
-    
-<div class="PageDiv" id=idNum1>
-	<div class="content">
-	<h2>AJAX</h2>
-    <p>To login, simply click the <span style="color: darkred">Login</span> button, which will bring you to the game grid</p>
-	<p>In case you don't feel like logging in, just click the Game Grid button to access the grid directly</p>
-	<p>For more on the Rules of Sudoku, click "Game Rules" </p> 
-        
-        <div id="relC">
-            <button class="linkButton" id="loginBt" type="button">Login</button>
-            <a href="checkpoint.html"> <button class="linkButton" type="button">CheckPoint</button> </a>
-        <a href="GameGrid.html"> <button class="linkButton" type="button">Game Grid</button> </a>
-	<a href="http://www.sudokuessentials.com/how_to_play_sudoku.html" target="blank"> <button class="linkButton" type="button">Game Rules</button> </a>
-            <div class="settingsMenuContent" id="setC">
-            <p id="gameOpt">User Name:</p>
-                <input id="tInput" value="e.g. Harpo" type="text" name="userName" maxlength="30">
-            <p id="gameOpt">Password:</p>
-                <input id="pInput" type="password" name="userName" maxlength="30">
-                <div id="errorMsg">
-                
-                </div>
-                <span id="loginButtons">
-                    <button id="login">Login</button>
-                    <button id="cancel">Cancel</button>
-                </span>
-            </div>
+    <div class="header"> <!-- The topmost portion of the page with menu items, etc -->
+        <h3 id="homeLink">tlindsay.com</h3>
+        <div id="homeButtons">
+            <button>CONTACT</button>
+            <button>OTHER</button>
+            <button>PROJECTS</button>
         </div>
-    
-
-</div>
-</div>
-    <div class="PageDiv2">
-				<div id=idNum3>
-					<h3>Model:</h3>
-					<p class="blackText" >Game Global Variables:
-						<ul>
-							<li>var selectedNumber;</li>
-                            <li>var numErrors = 0;</li>
-                            <li>var maxNumErrors = 3;</li>
-                            <li>var numHints = 0;</li>
-                            <li>var maxNumHints = 3;</li>
-                            <li>var numRows = 9;</li>
-                            <li>var numColumns = 9;</li>
-                            <li>var runningGameInfo;</li>
-                            <li>var currentTime = "00:00";</li>
-						</ul>
-					</p>
-				</div>
-				<div id=idNum2>
-					<img id="sudoku" width=80% alt="Image of a Sudoku Grid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sudoku-by-L2G-20050714modif.svg/256px-Sudoku-by-L2G-20050714modif.svg.png"/>
-        		</div>	
-	
-    <h3>Game Object:</h3>
-    <p class="blackText">The values of the Game Object properties are determined by the user-selected difficulty. </p>
-    <p class="blackText">The Game Object contains the following properties:</p>
-    <ul>
-        <li><em>difficulty:</em> String, The difficulty of the puzzle, (easy, medium, hard)</li>
-        <li><em>numToWin:</em> Integer, the number of blank spaces of the puzzle. This is decremented each time a user places a correct number</li>
-        <li><em>puzzleId:</em> Two dimensional array of integers. Contains the Answer-Key of how the completed puzzle should look</li>
-        <li><em>puzzleToLoad:</em> Two dimensional array, containing the initial puzzle appearance, with 0's for the blank spaces that are loaded</li>
-    </ul>
-    <h3>Game Object Examples:</h3>
-    <div id="imgContainer">
-        <img class="objectIMG" src="./IMG/ObjectExample1.PNG">
-        <img class="objectIMG" src="./IMG/ObjectExample2.PNG">
-    </div>
-    
-    <div id="otherStuff">
-    <h3>Sudoku Game Variables:</h3>
-    <ul>
-        <li><em>selectedNumber:</em> Integer, represents the selected number of a row of buttons 1-9. While a certain number is selected, that is the number that will be placed on the grid when the individual cells are selected.</li>
-        <li><em>numHints:</em> Integer, the number of currently requested hints by the user</li>
-        <li><em>numErrors:</em> Integer, the number of accumulated errors the user has commited</li>
-    
-    </ul>
-    </div>
-    </div>
-
-    <div class="PageDiv3" >
-        <h2>Functions/Methods of the Model:</h2>
-        <p>The following functions belong to the Model of the Sudoku Game</p>
-    </div>
-    
-    <div class="PageDiv2">
-     <ul>
-        <li class="ExtraPadding"><b>pickGame():</b><br>This function will take the game difficulty value picked by the user, and create a game object with the associated values for the difficulty (easy, medium, or hard). </li>
-        <li class="ExtraPadding"><b>giveHint():</b><br>This function will find a randomly generated blank spot in the sudoku grid, place a value in it, and increment the numHints variable. </li>
-        <li class="ExtraPadding"><b>checkValidNumber():</b><br>This function will take the number just inserted into the cell of the table, and check it against the two dimensional array of the correct numbers for that particular puzzle. </li>
-        <li class="ExtraPadding"><b>correctNumber():</b><br>This function is called if the inserted number is in the correct place. It decrements the number of cells left over until the game has been won.</li>
-        <li class="ExtraPadding"><b>wrongNumber():</b><br>This function is called if the inserted number is in the incorrect place. It will discard the number, and increase the number of errors in the numCurErrors variable.</li>
-        <li class="ExtraPadding"><b>checkGameWin():</b><br>This function is called from the correctNumber() function, to update and check the numToWin variable to see if the game is now complete.</li>
-        <li class="ExtraPadding"><b>checkGameLose():</b><br>This function is called from the wrongNumber() function, to check the numErrors variable against the max NUMERRORS constant to see if the game is over.</li>
-        <li class="ExtraPadding"><b>gameWin():</b><br>This function is called from the checkGameWin function if the game has been won. It takes the game statistics and resets the game variables, then calls a render function to render the game win overlay.</li>
         
-        </ul>
     </div>
+    
+
+    <div id="tileCont" class="tileContainer"> <!-- The main body of the page, hold tiles, etc -->
+        
+        
+        <a href="Sudoku/GameGrid.html">
+            <div class="tile" id="otherTile".>
+                <div id="tile1text" class="innerText">
+                    <h4 class="innerTitle">Javascript Sudoku:</h4>
+                    </div>
+                <div id="tile1text2" class="innerText">
+                    <ul>
+                        <li>Implemented using core javascript</li>
+                        <li>No frameworks utilized</li>
+                        <li>Fully functional GUI</li>
+                        <li>Bonus, Yahoo fueled weather app</li>
+                    </ul>
+                </div>
+                <div id="tile1"></div>
+            </div>
+        </a>
+        
+        
+        <a href="http://www.mozenda.com">
+            <div class="tile">
+                <div id="tile2text" class="innerText">
+                    <h4 class="innerTitle">Mozenda:</h4>
+                </div>
+                <div id="tile2text2" class="innerText">
+                    <ul>
+                            <li>#1 Web Scraping Software</li>
+                            <li>Cloud based data storage</li>
+                            <li>Point and Click "agent" creation</li>
+                            <li>Free 30 day trial</li>
+                    </ul>
+                </div>
+                <div id="tile2"></div>
+            </div>
+        </a>
+        <a href="http://www.uvu.edu/">
+            <div class="tile">
+                <div id="tile3text" class="innerText">
+                    <h4 class="innerTitle">Utah Valley University:</h4>
+                </div>
+                <div id="tile3text3" class="innerText">
+                    <ul>
+                            <li>Largest University in Utah</li>
+                            <li>School colors include Green!</li>
+                            <li>Home to a stellar CS program</li>
+                            <li>Open Enrollment</li>
+                    </ul>
+                </div>
+                <div id="tile3"></div>
+            </div>
+        </a>
+        <a href="./SQA/mozendaSQA.html">
+            <div class="tile" id="tile4">
+            <h4>Mozenda SQA stats...(beta)</h4>
+                <p>- Self-updating stats tally for Mozenda <br> SQA dept</p>
+            </div>
+        </a>
+        
+        <div class="tile" id="tile5">
+            <p>This will be some sort of menu...</p>
+        </div>
+        <div class="tile" id="tile6">
+            <p>This will be some sort of menu...</p>
+        </div>
+    </div>
+
 
 
 </body>
-<script src="./View/login.js"></script>
+
 </html>

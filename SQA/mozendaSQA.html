@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mozenda QA Stats</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <a href="https://www.mozenda.com"><img src="moz.png"></a>
+        <h1 id="title">SQA Stats</h1>
+        <div id="runBtContainer">
+            <button class="agentButton" id="JiraAgent">Re-Run Jira Agent</button>
+            <div id="dateTime">Last Refreshed...</div>
+        </div>
+    </div>
+    <div class="tableHeader">
+        <h4 style="padding-top: 5px; padding-bottom: 5px;">Total Bug Count:</h4>
+    </div>
+    <div class="stats">
+        <table class="statsTable" id="tableOfStats">
+            <tr class="topCells statsRow">
+                <td id="noShow"></td>
+                <td class="Category">Submitted</td>
+                <td class="Category">Low</td>
+                <td class="Category">Medium</td>
+                <td class="Category">High</td>
+                <td class="Category">Critical</td>
+                <td class="Category">Customer</td>
+                <td class="Category">Duplicate</td>
+            </tr>
+            <tr class="statsRow" id="qa1">
+                <td class="name" id="mike">Mike</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="statsRow" id="qa2">
+                <td class="name" id="nathan">Nathan</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="statsRow" id="qa3">
+                <td class="name" id="brian">Brian</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="statsRow" id="qa4">
+                <td class="name" id="travis">Travis</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <table class="numTable" style="margin: auto;">
+            <tr class="numRows topCells Category"><td>Total</td><td>Points</td></tr>
+            <tr class="numRows"><td id="qa1total"></td><td id="qa1points"></td></tr>
+            <tr class="numRows"><td id="qa2total"></td><td id="qa2points"></td></tr>
+            <tr class="numRows"><td id="qa3total"></td><td id="qa3points"></td></tr>
+            <tr class="numRows"><td id="qa4total"></td><td id="qa4points"></td></tr>
+        </table>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>

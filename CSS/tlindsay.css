@@ -1,0 +1,179 @@
+/* CSS for the main splash page */
+body{
+    padding:0; 
+    margin:0;
+    font-family: sans-serif;
+    background-color: rgba(244, 244, 244, 0.85);
+}
+
+.header {
+    color: black;
+    font-size: 15px;
+    width: 100%;
+    height: 65px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: inline-flex;
+    position: relative;
+    float: left;
+    background-color: white;
+}
+
+#homeLink {
+    padding-left: 25px;
+    position: relative;
+    float: left;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+button {
+    background: transparent;
+    position: relative;
+    float: right;
+    border: none;
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#homeButtons{
+    margin-left: auto;
+    margin-right: 15px;
+    align-content: center;
+}
+
+.tileContainer {
+    width: 80%;
+    position: relative;
+    top: 50px;
+    margin: auto;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.tile {
+    position: relative;
+    display: inline-block;
+    float: left;
+    height: 450px;
+    width: 350px;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+#tile1 {
+    background-image: url("../IMG/Sudoku.PNG");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 120%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-shadow: 5px 5px 10px #949495;
+}
+
+#tile1:hover {
+    background-color: white;
+}
+
+#tile2 {
+    background-image: url("../IMG/Mozenda2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    background-color: #00a4cb;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-shadow: 5px 5px 10px #949495;
+}
+
+#tile2:hover {
+    background-color: white;
+}
+
+#tile3 {
+    background-image: url("../IMG/UVU.PNG");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 130%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-shadow: 5px 5px 10px #949495;
+}
+
+#tile3:hover {
+    background-color: white;
+}
+
+#tile1text {
+    position: absolute;
+    z-index: 51;
+    display: none;
+    color: black;
+    font-size: 25px;
+}
+#tile1text2 {
+    position: absolute;
+    z-index: 51;
+    display: none;
+    color: black;
+    font-size: 25px;
+    margin-top: 55px;
+}
+
+#tile2text {
+    position: absolute;
+    z-index: 51;
+    display: none;
+    color: black;
+    font-size: 25px;
+}
+
+#tile2text2 {
+    position: absolute;
+    z-index: 51;
+    display: none;
+    color: black;
+    font-size: 25px;
+    margin-top: 55px;
+}
+
+#tile3text {
+    position: absolute;
+    z-index: 51;
+    display: none;
+    color: black;
+    font-size: 25px;
+}
+
+#tile3text3 {
+    position: absolute;
+    z-index: 51;
+    display: none;
+    color: black;
+    font-size: 25px;
+    margin-top: 55px;
+}
+
+.innerText {
+    position: absolute;
+    z-index: 50;
+    width: 100%;
+    height: 100%;
+}
+
+.innerTitle{
+    padding-left: 10px;
+    font-weight: bolder;
+    font-size: 28px;
+    text-shadow: 1px 1px 1px #696767;
+}
+
+li {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    padding-right: 10px;
+    text-shadow: 1px 1px 1px #4d4343;
+}

@@ -10,6 +10,7 @@ var runningGameInfo;
 var currentTime = "00:00";
 var selectedRow = 0;
 var selectedColumn = 0;
+var gameLoseInProgress = false;
 //End global variables
 
 
@@ -199,6 +200,10 @@ function setXMark() { //For the error marks
 
 function correctNumber(myCell) {
     //Play sound
+    clickSound = document.getElementById("clickSound");
+    if(!clickSound.paused){ //if it has the paused attribute, then it has stopped playing
+        document.getElementById("clickSound2").play(); //play the second one
+    }
     document.getElementById("clickSound").play();
     //Update the cells class to be unhoverable
     myCell.classList.remove("emptyCell");
@@ -313,6 +318,12 @@ function gameWin() {
 
 
 function gameLose() {
+    if(gameLoseInProgress == true){
+        return;
+    }
+    else {
+        gameLoseInProgress = true; //set the variable so that it doesn't duplicate the animation if multiple wrong numbers were selected
+    }
     //Select the empty squares, and give them the same background as an errored td
     var numRemainingSquares = 0;
     var incompleteNums = document.getElementsByTagName("td");
@@ -320,7 +331,8 @@ function gameLose() {
         {
             if (incompleteNums[i].innerText == "")
                 {
-                    incompleteNums[i].classList.add("loseGameHighlight");
+                    //I don't want to highlight the numbers anymore
+                    //incompleteNums[i].classList.add("loseGameHighlight");
                     numRemainingSquares++;
                 }
                 
@@ -362,9 +374,13 @@ function gameLose() {
     var timeVar = document.getElementById("time");
     var totalTime = timeVar.innerText;
     
+    //Blow up all of the numbers on the screen
+    canvasAnim();
     //render the game lose panel
+    setTimeout(function(){
     renderGameLose(numRemainingSquares, totalTime);
-    
+    },3500);
+    gameLoseInProgress = false; //reset the game lose variable in case the game resets  
     //alert("You lose!");
 }
 
@@ -464,4 +480,67 @@ function updateCordDisplay(c) {
     var colVal = document.getElementById("lastCol");
     rowVal.innerText = selectedRow;
     colVal.innerText = selectedColumn;
+}
+
+//hidden cheat function, gives answer when cell is right clicked
+function cheat(){
+    //alert("The cell was right-clicked");
+    col = this.cellIndex;
+    row = this.parentNode.rowIndex;
+    //update the cell with the correct answer
+    num = runningGameInfo.puzzleID[row][col];
+    setSelectedNumber(num);
+    correctNumber(this);
+    //changeBtClicked();
+}
+
+//Function for Assignment #6, loading local JSON files
+function getJSONFile(){
+    var button = this.innerText;
+    switch(button)
+        {
+        case "Easy - JSON":
+                //load EASY JSON
+                syncPostRequest("easy");
+              break;
+        case "Medium - JSON":
+                //load Med JSON
+                syncPostRequest("medium");
+              break;
+        case "Hard - JSON":
+                //load Hard JSON
+                syncPostRequest("hard");
+              break;
+        }
+        
+}
+
+// NO CALLBACK FUNCTION FOR SYNCHRONOUS REQUESTS
+function syncPostRequest(difficulty) {
+    //var name = document.getElementById("name2Txt").value;
+    var data = "difficulty=" + difficulty;
+    var localRequest = new XMLHttpRequest();
+
+    // PASSING false AS THE THIRD PARAMETER TO open SPECIFIES SYNCHRONOUS
+    var filePath = "./JSON/" + difficulty + ".json";
+    localRequest.open("POST", filePath, false);
+    localRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    localRequest.send(data);
+
+    // NOTE THAT THE status WILL NOT BE 200 IF THE REQUEST IS FOR A
+    // LOCAL FILE.
+
+	// FOR MORE INFORMATION ABOUT JSON SEE http://json.org
+	var responseJson = JSON.parse(localRequest.responseText);
+    var puzzleStuff = responseJson.puzzleStuff;
+    
+    //Render the new game
+    removeOldStuff("nums"); //removes button menu, if there is any
+    removeOldStuff("checks");
+    runningGameInfo = puzzleStuff; //
+    renderGame(puzzleStuff,numRows,numColumns);
+    //Change the username dependant on the document loaded
+    userName = responseJson.puzzleStuff.puzzleCreator;
+    renderUserName(); // Updates the title of the game dependant on the json file loaded
+    
 }

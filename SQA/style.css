@@ -1,0 +1,139 @@
+body, html {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ededed;
+}
+
+.header {
+    position: static;
+    height: 75px;
+    background-color: #00aad2;
+    color: white;
+    border-bottom: solid black 3px;
+    min-width: 500px;
+}
+
+#title {
+    margin: auto;
+    padding-left: 25px;
+    padding-top: 20px;
+    font-weight: bolder;
+    position: relative;
+    float: left;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: solid gray 1px;
+    width: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.stats {
+    display: inline-flex;
+    height: 220px;
+}
+
+.statsTable {
+    width: 90%;
+    margin: auto;
+    padding-left: 15px;
+    position: relative;
+    float: left;
+    left: 15px;
+    
+}
+
+.numTable {
+    width: 50px; 
+    position: relative;
+    float: left;
+    left: 30px;
+}
+
+.numRows {
+    border: solid gray 2px;
+    height: 40px;
+}
+
+.name {
+    background-color:#d0d0d0;
+    font-weight: bolder;
+    width: 75px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.topCells {
+    font-weight: bolder;
+}
+
+#noShow {
+    border-top: none;
+    border-left: none;
+}
+
+img {
+    width: 65px;
+    position: relative;
+    margin-top: 5px;
+    margin-left: 5px;
+    float: left;
+}
+
+.statsRow {
+    border: solid gray 2px;
+    height: 40px;
+    width: 90%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.Category {
+    background-color: #d9eded;
+}
+
+.tableHeader {
+    width: 100%;
+    padding-left: 15px;
+    background-color: rgba(145, 145, 145, 0.2);
+}
+
+.agentButton {
+    position: relative;
+    float: right;
+    height: 30px;
+    right: 25px;
+    top: 5px;
+    background-color:#ffffff;
+    font-weight: bolder;
+    color: #2c2c2c;
+    border: solid #c3c3c3 2px;
+    border-radius: 7px;
+    z-index: 1;
+}
+
+.agentButton:hover {
+    color: white;
+    background-color:#00aad2;
+    border: solid #ffffff 2px;
+}
+
+#dateTime {
+    position: relative;
+    top: 15px;
+    right: 22px;
+    z-index: 0;
+}
+
+#runBtContainer {
+    position: relative;
+    float: right;
+    height: 100%;
+}
