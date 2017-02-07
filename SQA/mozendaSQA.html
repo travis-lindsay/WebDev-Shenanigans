@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Mozenda QA Stats</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+<title>Mozenda SQA Stats</title>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="./style.css">
+<script src="./script.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-    <div class="header">
-        <a href="https://www.mozenda.com"><img src="moz.png"></a>
+    <div class="header container-fluid">
+        <img src="moz.png">
         <h1 id="title">SQA Stats</h1>
         <div id="runBtContainer">
-            <button class="agentButton" id="JiraAgent">Re-Run Jira Agent</button>
-            <div id="dateTime">Last Refreshed...</div>
+            <a class="test" href="#" data-toggle="tooltip" data-placement="left" title="Re-Scrape Data from Jira to update statistics">
+            <button class="btn btn-primary" id="JiraAgent" type="button" data-toggle="button">Re-Run Jira Agent</button></a>
+            <div id="dateTime" data-toggle="tooltip" data-placement="left" title="Last Refreshed:">Last Refreshed...</div>
         </div>
     </div>
-    <div class="tableHeader">
-        <h4 style="padding-top: 5px; padding-bottom: 5px;">Total Bug Count:</h4>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#TotalTable" aria-expanded="true" aria-controls="collapseOne" style="text-decoration: none; color: black;">
+    <div class="tableHeader2" role="tab" id="heading1">
+        <h4 class="panel-title" style="padding-top: 5px; padding-bottom: 5px; padding-left: 15px;">
+            <span class="HeaderCont">
+                <b>Total Bug Count:</b>
+                <span class="glyphicon glyphicon-triangle-right"></span>
+            </span>
+        </h4>
     </div>
-    <div class="stats">
+    </a>
+    <div id="TotalTable" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="TableContent">
+        <div class="stats">
         <table class="statsTable" id="tableOfStats">
             <tr class="topCells statsRow">
                 <td id="noShow"></td>
@@ -71,7 +91,155 @@
             </tr>
         </table>
         
-        <table class="numTable" style="margin: auto;">
+        <table class="numTable table" style="margin: auto;">
+            <tr class="numRows topCells Category"><td>Total</td><td>Points</td></tr>
+            <tr class="numRows"><td id="qa1total"></td><td id="qa1points"></td></tr>
+            <tr class="numRows"><td id="qa2total"></td><td id="qa2points"></td></tr>
+            <tr class="numRows"><td id="qa3total"></td><td id="qa3points"></td></tr>
+            <tr class="numRows"><td id="qa4total"></td><td id="qa4points"></td></tr>
+        </table>
+        </div>
+        </div>
+    </div>
+    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#2017Table" aria-expanded="true" aria-controls="collapseOne" style="text-decoration: none; color: black;">
+    <div class="tableHeader2" role="tab" id="headingOne">
+        <h4 class="panel-title" style="padding-top: 5px; padding-bottom: 5px; padding-left: 15px;">
+            <b>2017 Bug Count:</b>
+            <span class="glyphicon glyphicon-triangle-right"></span>  
+      </h4>
+    </div>
+    </a>
+    <div id="2017Table" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+        <div class="TableContent">
+    <div class="stats">
+        <table class="statsTable" id="tableOfStats2">
+            <tr class="topCells statsRow">
+                <td id="noShow"></td>
+                <td class="Category">Submitted</td>
+                <td class="Category">Low</td>
+                <td class="Category">Medium</td>
+                <td class="Category">High</td>
+                <td class="Category">Critical</td>
+                <td class="Category">Customer</td>
+                <td class="Category">Duplicate</td>
+            </tr>
+            <tr class="statsRow" id="qa12">
+                <td class="name" id="mike">Mike</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="statsRow" id="qa22">
+                <td class="name" id="nathan">Nathan</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="statsRow" id="qa32">
+                <td class="name" id="brian">Brian</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="statsRow" id="qa42">
+                <td class="name" id="travis">Travis</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <table class="numTable table" style="margin: auto;">
+            <tr class="numRows topCells Category"><td>Total</td><td>Points</td></tr>
+            <tr class="numRows"><td id="qa12total"></td><td id="qa12points"></td></tr>
+            <tr class="numRows"><td id="qa22total"></td><td id="qa22points"></td></tr>
+            <tr class="numRows"><td id="qa32total"></td><td id="qa32points"></td></tr>
+            <tr class="numRows"><td id="qa42total"></td><td id="qa42points"></td></tr>
+        </table>
+    </div>
+    </div>
+    </div>
+    <a data-toggle="collapse" data-parent="#accordion" href="#2016Table" aria-expanded="true" aria-controls="collapseOne" style="text-decoration: none; color: black;">
+    <div class="tableHeader2" role="tab" id="headingTwo">
+      <h4 class="panel-title" style="padding-top: 5px; padding-bottom: 5px; padding-left: 15px;">
+          <b>2016 Bug Count:</b>
+            <span class="glyphicon glyphicon-triangle-right"></span>
+      </h4>
+    </div>
+    </a>
+    <div id="2016Table" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="TableContent">
+    <div class="stats">
+        <table class="statsTable" id="tableOfStats3">
+            <tr class="topCells statsRow">
+                <td id="noShow"></td>
+                <td class="Category">Submitted</td>
+                <td class="Category">Low</td>
+                <td class="Category">Medium</td>
+                <td class="Category">High</td>
+                <td class="Category">Critical</td>
+                <td class="Category">Customer</td>
+                <td class="Category">Duplicate</td>
+            </tr>
+            <tr class="statsRow" id="qa13">
+                <td class="name" id="mike">Mike</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="statsRow" id="qa23">
+                <td class="name" id="nathan">Nathan</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="statsRow" id="qa33">
+                <td class="name" id="brian">Brian</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="statsRow" id="qa43">
+                <td class="name" id="travis">Travis</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <table class="numTable table" style="margin: auto;">
             <tr class="numRows topCells Category"><td>Total</td><td>Points</td></tr>
             <tr class="numRows"><td id="qa1total"></td><td id="qa1points"></td></tr>
             <tr class="numRows"><td id="qa2total"></td><td id="qa2points"></td></tr>
@@ -79,7 +247,9 @@
             <tr class="numRows"><td id="qa4total"></td><td id="qa4points"></td></tr>
         </table>
     </div>
-</body>
-<script src="script.js"></script>
+    </div>
+    </div>
+    </div>
 
+</body>
 </html>

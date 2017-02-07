@@ -1,7 +1,8 @@
-function init(){
+function init() {
     //Set the eventListener for the Run Jira button
-    document.getElementById("JiraAgent").addEventListener("click", runJiraAgent, false);
-    
+    //document.getElementById("JiraAgent").addEventListener("click", runJiraAgent, false);
+    //document.getElementById("dateTime").addEventListener("mouseover", displayLastRefreshed, false);
+    //document.getElementById("dateTime").addEventListener("mouseleave", displayDateTime, false);
     
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -16,6 +17,9 @@ function init(){
 
 window.onload = init(); //run this function upon loading the page
 
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
 //API call for the agent data from testapp
 //https://testapp.mozenda.com/rest?WebServiceKey=A3F23DB6-7485-4F86-BE15-7E32D10BE0AA&Service=Mozenda10&Operation=View.GetItems&ViewID=1000
 //API call for agent on Production
@@ -40,9 +44,12 @@ function myCallback(xml) {
           number = 0;
         }
       checkEmployee(employee, status, number); //parse all the data from the xml response and put it in the appropriate table cells
-      getTotals(); //now calculate the totals
-      getLastRunTime(); //Get the date-time that the agent was last run
+      checkEmployee2(employee, status, number); //parse data for the second table
   }
+          setTimeout(function()
+                 { getTotals(); //now calculate the totals
+                   getLastRunTime(); //Get the date-time that the agent was last run
+                 }, 1500);
 }//end of callback function
 
 function checkEmployee(employee, status, number){
@@ -52,22 +59,60 @@ function checkEmployee(employee, status, number){
     case "mike":
         row = document.getElementById("qa1"); 
         index = getIndexFromStatus(status);
-        row.children[index].innerText = number;
+        if(index != 0)
+            row.children[index].innerText = number;
         break;
     case "nathan":
         row = document.getElementById("qa2"); 
         index = getIndexFromStatus(status);
-        row.children[index].innerText = number;
+        if(index != 0)
+            row.children[index].innerText = number;
         break;
     case "brian":
         row = document.getElementById("qa3"); 
         index = getIndexFromStatus(status);
-        row.children[index].innerText = number;
+        if(index != 0)
+            row.children[index].innerText = number;
         break;
     case "travis":
         row = document.getElementById("qa4"); 
         index = getIndexFromStatus(status);
-        row.children[index].innerHTML = number;
+        if(index != 0)
+            row.children[index].innerText = number;
+        break;
+    default:
+        console.log("something broke in the data feed");
+        break;
+    }//end switch
+} //end of checkEmployee function
+
+function checkEmployee2(employee, status, number){
+    var index = 0;
+    
+    switch(employee) {
+    case "mike":
+        row = document.getElementById("qa12"); 
+        index = getIndexFromStatus2(status);
+        if(index != 0)
+            row.children[index].innerText = number;
+        break;
+    case "nathan":
+        row = document.getElementById("qa22"); 
+        index = getIndexFromStatus2(status);
+        if(index != 0)
+            row.children[index].innerText = number;
+        break;
+    case "brian":
+        row = document.getElementById("qa32"); 
+        index = getIndexFromStatus2(status);
+        if(index != 0)
+            row.children[index].innerText = number;
+        break;
+    case "travis":
+        row = document.getElementById("qa42"); 
+        index = getIndexFromStatus2(status);
+        if(index != 0)
+            row.children[index].innerText = number;
         break;
     default:
         console.log("something broke in the data feed");
@@ -100,7 +145,37 @@ function getIndexFromStatus(status){
             return 7;
             break;
         default:
-            console.log("something broke in the data feed");
+            return 0; //Don't do anything
+            break;
+    }//end switch
+} //end of getIndexFromStatus
+
+function getIndexFromStatus2(status){
+    //Returns the index of the cell that the value will be placed in based on the status
+    switch(status){
+        case "hold":
+            return 1;
+            break;
+        case "low2017":
+            return 2;
+            break;
+        case "medium2017":
+            return 3;
+            break;
+        case "high2017":
+            return 4;
+            break;
+        case "critical2017":
+            return 5;
+            break;
+        case "customer2017":
+            return 6;
+            break;
+        case "duplicate2017":
+            return 7;
+            break;
+        default:
+            return 0; //don't do anything
             break;
     }//end switch
 } //end of getIndexFromStatus
@@ -116,19 +191,20 @@ var custMagnifier = 5;
 var dupMagnifier = -2;
 var magnifierArray = [subMagnifier, lowMagnifier, medMagnifier, highMagnifier, critMagnifier, custMagnifier, dupMagnifier];
 var numCategories = 7; // the number of categories, (e.g. low, med, high, etc)
+var dateTime;
 
 
 function getTotals(){
     //var row = document.getElementById("qa1");
     //var totalCell = document.getElementById("qa1total");
-    addBugs(document.getElementById("qa1"), document.getElementById("qa1total"));
-    addBugs(document.getElementById("qa2"), document.getElementById("qa2total"));
-    addBugs(document.getElementById("qa3"), document.getElementById("qa3total"));
-    addBugs(document.getElementById("qa4"), document.getElementById("qa4total"));
-    addPoints(document.getElementById("qa1"), document.getElementById("qa1points"));
-    addPoints(document.getElementById("qa2"), document.getElementById("qa2points"));
-    addPoints(document.getElementById("qa3"), document.getElementById("qa3points"));
-    addPoints(document.getElementById("qa4"), document.getElementById("qa4points"));
+    var idArray1 = ["qa1", "qa2", "qa3", "qa4", "qa12", "qa22", "qa32", "qa42"];
+    var totalsArray = ["qa1total", "qa2total", "qa3total", "qa4total", "qa12total", "qa22total", "qa32total", "qa42total"];
+    var pointsArray = ["qa1points", "qa2points", "qa3points", "qa4points", "qa12points", "qa22points", "qa32points", "qa42points"];
+    for(var i = 0; i < idArray1.length; i++)
+        {
+            addBugs(document.getElementById(idArray1[i]), document.getElementById(totalsArray[i]));
+            addPoints(document.getElementById(idArray1[i]), document.getElementById(pointsArray[i]));
+        }
 }
 
 function addBugs(row, totalCell){
@@ -170,7 +246,7 @@ function theCallback(xml){
             if(nodes[i].getElementsByTagName("JobRestriction")[0].childNodes[0].nodeValue == "atlassian.net"){
                 // If it is from Jira, the first one will be the most recent
                 document.getElementById("dateTime").innerText = nodes[i].getElementsByTagName("Created")[0].childNodes[0].nodeValue;
-                break; //because this is the going to be the most recent one if it is the first
+                break; //we only want the first one
             }
             else {
                 //Else, something has gone terribly wrong... The schedule for the agent has probably broken
@@ -180,14 +256,38 @@ function theCallback(xml){
         }
     }
 
-function runJiraAgent(){
-    alert("yup");
+//function runJiraAgent(){
+    //alert("yup");
     
-    //https://api.mozenda.com/rest?WebServiceKey=FF2EBAE5-D535-4546-8FED-49AD29CD7DDD&Service=Mozenda10&Operation=Agent.Run&AgentID=1123
-    /*var xhttp = new XMLHttpRequest();
+/*    https://api.mozenda.com/rest?WebServiceKey=FF2EBAE5-D535-4546-8FED-49AD29CD7DDD&Service=Mozenda10&Operation=Agent.Run&AgentID=1123
+    var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "https://api.mozenda.com/rest?WebServiceKey=FF2EBAE5-D535-4546-8FED-49AD29CD7DDD&Service=Mozenda10&Operation=Agent.Run&AgentID=1123", true);
-    xhttp.send();
+    xhttp.send();*/
     
-    document.getElementById("JiraAgent").addClass("w3-disabled");*/
     
+//}
+
+$('#JiraAgent').on('click', function () {
+    $(this).button('toggle')
+    //$(this).button.value = "Loading...";
+    this.innerText = "Queued...";
+    // business logic...
+    //$btn.button('reset')
+    })
+
+function displayLastRefreshed(){
+    var node = document.getElementById("dateTime");
+    dateTime = node.innerText;
+    node.innerText = "Last Refreshed...";
 }
+
+function displayDateTime(){
+    var node = document.getElementById("dateTime");
+    node.innerText = dateTime;
+}
+
+$('#TotalTable').on('hidden.bs.collapse', function () {
+  // do something…
+    alert("it happened");
+    console.log("it happened");
+})

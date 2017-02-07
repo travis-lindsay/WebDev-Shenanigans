@@ -107,6 +107,7 @@ function animateTileTiltLeave1() {
 
 function animateTileTilt2() {
     var tile = this;
+    //don't continue if the animation isn't already complete
     if((tile.style.opacity < 1) && (tile.style.opacity != "")){
         return;
     }
@@ -130,8 +131,6 @@ function animateTileTilt2() {
                 //wait a set amount of time before kicking of return animation
                 
                      if(cStyle == "rgb(255, 255, 255)"){
-                         //complete = false;
-                         //console.warn(cStyle);
                          return;
                      }
                      else { 
@@ -154,6 +153,11 @@ function animateTileTilt2() {
 }//end function
 
 function animateTileTiltLeave2() {
+    var bStyle = document.getElementById("tile2");
+    var cStyle = window.getComputedStyle(bStyle, null).backgroundColor; 
+    if(cStyle == "rgb(255, 255, 255)"){
+                         return;
+                     }
     var tile = document.getElementById("tile2");
     if((complete2 == true) && (completeLeave2 == true) && (tile.style.transform == "rotateY(180deg)")){
         completeLeave2 = false;
