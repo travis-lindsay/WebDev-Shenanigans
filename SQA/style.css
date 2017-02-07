@@ -5,9 +5,13 @@ body, html {
     background: #ededed;
 }
 
+a {
+text-decoration: none;
+}
+
 .header {
     position: static;
-    height: 75px;
+    height: 80px;
     background-color: #00aad2;
     color: white;
     border-bottom: solid black 3px;
@@ -101,8 +105,20 @@ img {
 
 .tableHeader {
     width: 100%;
-    padding-left: 15px;
     background-color: rgba(145, 145, 145, 0.2);
+}
+
+.tableHeader2 {
+    margin-top: 5px;
+    width: 100%;
+    background-color: rgba(145, 145, 145, 0.3);
+    font-weight: bolder;
+}
+
+.TableContent{
+    height: 300px;
+    background: #ededed;
+    padding-top: 25px;
 }
 
 .agentButton {
@@ -119,21 +135,44 @@ img {
     z-index: 1;
 }
 
-.agentButton:hover {
+#JiraAgent{
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+/*.agentButton:hover {
     color: white;
     background-color:#00aad2;
     border: solid #ffffff 2px;
-}
+}*/
+
 
 #dateTime {
     position: relative;
-    top: 15px;
-    right: 22px;
+    top: 5px;
     z-index: 0;
+    text-align: center;
+    color: white;
 }
+
+/*button {width:6em}
+button:hover span {display:none}
+button:hover:before {content:"Reply!"}*/
 
 #runBtContainer {
     position: relative;
     float: right;
     height: 100%;
 }
+
+/* Tooltip */
+  .test + .tooltip > .tooltip-inner {
+      background-color: #1a1a1a; 
+      color: #FFFFFF; 
+      border: 1px solid black; 
+      padding: 5px;
+      font-size: 12px;
+      position: relative;
+      min-width:200px;
+  }
