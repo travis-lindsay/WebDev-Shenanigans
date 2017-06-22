@@ -45,6 +45,7 @@ function myCallback(xml) {
         }
       checkEmployee(employee, status, number); //parse all the data from the xml response and put it in the appropriate table cells
       checkEmployee2(employee, status, number); //parse data for the second table
+      checkEmployee3(employee, status, number); //parse data for the third table
   }
           setTimeout(function()
                  { getTotals(); //now calculate the totals
@@ -120,6 +121,40 @@ function checkEmployee2(employee, status, number){
     }//end switch
 } //end of checkEmployee function
 
+function checkEmployee3(employee, status, number){
+    var index = 0;
+    
+    switch(employee) {
+    case "mike":
+        row = document.getElementById("qa13"); 
+        index = getIndexFromStatus3(status);
+        if(index != 0)
+            row.children[index].innerText = number;
+        break;
+    case "nathan":
+        row = document.getElementById("qa23"); 
+        index = getIndexFromStatus3(status);
+        if(index != 0)
+            row.children[index].innerText = number;
+        break;
+    case "brian":
+        row = document.getElementById("qa33"); 
+        index = getIndexFromStatus3(status);
+        if(index != 0)
+            row.children[index].innerText = number;
+        break;
+    case "travis":
+        row = document.getElementById("qa43"); 
+        index = getIndexFromStatus3(status);
+        if(index != 0)
+            row.children[index].innerText = number;
+        break;
+    default:
+        console.log("something broke in the data feed");
+        break;
+    }//end switch
+} //end of checkEmployee function
+
 function getIndexFromStatus(status){
     //Returns the index of the cell that the value will be placed in based on the status
     switch(status){
@@ -180,6 +215,36 @@ function getIndexFromStatus2(status){
     }//end switch
 } //end of getIndexFromStatus
 
+function getIndexFromStatus3(status){
+    //Returns the index of the cell that the value will be placed in based on the status
+    switch(status){
+        case "hold":
+            return 1;
+            break;
+        case "low2016":
+            return 2;
+            break;
+        case "medium2016":
+            return 3;
+            break;
+        case "high2016":
+            return 4;
+            break;
+        case "critical2016":
+            return 5;
+            break;
+        case "customer2016":
+            return 6;
+            break;
+        case "duplicate2016":
+            return 7;
+            break;
+        default:
+            return 0; //don't do anything
+            break;
+    }//end switch
+} //end of getIndexFromStatus
+
 //*********************************Global Variables and such************************************
 //Current point values by priority
 var subMagnifier = 0;
@@ -197,9 +262,9 @@ var dateTime;
 function getTotals(){
     //var row = document.getElementById("qa1");
     //var totalCell = document.getElementById("qa1total");
-    var idArray1 = ["qa1", "qa2", "qa3", "qa4", "qa12", "qa22", "qa32", "qa42"];
-    var totalsArray = ["qa1total", "qa2total", "qa3total", "qa4total", "qa12total", "qa22total", "qa32total", "qa42total"];
-    var pointsArray = ["qa1points", "qa2points", "qa3points", "qa4points", "qa12points", "qa22points", "qa32points", "qa42points"];
+    var idArray1 = ["qa1", "qa2", "qa3", "qa4", "qa12", "qa22", "qa32", "qa42", "qa13", "qa23", "qa33", "qa43"];
+    var totalsArray = ["qa1total", "qa2total", "qa3total", "qa4total", "qa12total", "qa22total", "qa32total", "qa42total", "qa13total", "qa23total", "qa33total", "qa43total"];
+    var pointsArray = ["qa1points", "qa2points", "qa3points", "qa4points", "qa12points", "qa22points", "qa32points", "qa42points", "qa13points", "qa23points", "qa33points", "qa43points"];
     for(var i = 0; i < idArray1.length; i++)
         {
             addBugs(document.getElementById(idArray1[i]), document.getElementById(totalsArray[i]));
