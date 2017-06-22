@@ -1,93 +1,152 @@
 <!DOCTYPE html>
-<html lang="en-US">
-<head>
-    <title>tlindsay</title>
-    <link rel="icon" type="image/x-icon" href="./IMG/num9.ico" >
-    <link rel="stylesheet" href="./CSS/tlindsay.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="./Script/homeScript.js"></script>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../favicon.ico">
 
-    <div class="header"> <!-- The topmost portion of the page with menu items, etc -->
-        <h3 id="homeLink">tlindsay.com</h3>
-        <div id="homeButtons">
-            <button>CONTACT</button>
-            <button>OTHER</button>
-            <button>PROJECTS</button>
-        </div>
-        
-    </div>
-    
+    <title>tlindsay.com</title>
 
-    <div id="tileCont" class="tileContainer"> <!-- The main body of the page, hold tiles, etc -->
-        
-        
-        <a href="Sudoku/GameGrid.html">
-            <div class="tile" id="otherTile".>
-                <div id="tile1text" class="innerText">
-                    <h4 class="innerTitle">Javascript Sudoku:</h4>
-                    </div>
-                <div id="tile1text2" class="innerText">
-                    <ul>
-                        <li>Implemented using core javascript</li>
-                        <li>No frameworks utilized</li>
-                        <li>Fully functional GUI</li>
-                        <li>Bonus, Yahoo fueled weather app</li>
-                    </ul>
-                </div>
-                <div id="tile1"></div>
-            </div>
-        </a>
-        
-        
-        <a href="./SQA/mozendaSQA.html">
-            <div class="tile">
-                <div id="tile2text" class="innerText">
-                    <h4 class="innerTitle">Mozenda:</h4>
-                </div>
-                <div id="tile2text2" class="innerText">
-                    <ul>
-                            <li>Mozenda SQA Stats Board</li>
-                            <li>Jira Bug count dashboard</li>
-                            <li>Daily updated statistics</li>
-                            <li>Utilizes the Mozenda API</li>
-                    </ul>
-                </div>
-                <div id="tile2"></div>
-            </div>
-        </a>
-        <a href="http://www.uvu.edu/">
-            <div class="tile">
-                <div id="tile3text" class="innerText">
-                    <h4 class="innerTitle">Utah Valley University:</h4>
-                </div>
-                <div id="tile3text3" class="innerText">
-                    <ul>
-                            <li>Largest University in Utah</li>
-                            <li>School colors include Green!</li>
-                            <li>Home to a stellar CS program</li>
-                            <li>Open Enrollment</li>
-                    </ul>
-                </div>
-                <div id="tile3"></div>
-            </div>
-        </a>
-        <a href="./SQA/mozendaSQA.html">
-            <div class="tile" id="tile4">
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
 
-        </a>
-        
-        <div class="tile" id="tile5">
-            <p></p>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/CSS/jumbotron.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #000000;">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://www.tlindsay.com">tlindsay.com</a>
         </div>
-        <div class="tile" id="tile6">
-            <p></p>
-        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-right">
+        <ul class="nav navbar-nav">
+
+            <li><a href="https://www.linkedin.com/in/travis-lindsay-a47341133/" target="_blank"><span class="glyphicon glyphicon-phone-alt"> </span>  Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                  <span class="glyphicon glyphicon-wrench"></span> Projects <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Projects</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Games</li>
+                <li><a href="Sudoku/GameGrid.html">Sudoku</a></li>
+                <li><a href="#">Pioneer Trail (beta)</a></li>
+              </ul>
+            </li>
+          </ul>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+      <!--#ffb372 (orange-ish) -->
+    <div class="jumbotron" style="background-color: #ff9841;">
+      <div class="container">
+        <h1>Welcome!</h1>
+        <p style="color: white;">To the most bleeding-edge webpage on earth. That's right, HTML5, CSS3, Javascript, and Bootstrap brings you this state-of-the-art wepage full of all of my favorite stuff. </p>
+        <p><a class="btn btn-primary btn-lg" href="https://www.linkedin.com/in/travis-lindsay-a47341133/" target="_blank" role="button"><span class="glyphicon glyphicon-info-sign"></span> More About The Author</a></p>
+      </div>
     </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h1><span class="glyphicon glyphicon-hand-right"></span> Projects</h1>
+            </div>
+        </div>
+        <hr>
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Javascript Sudoku</h2>
+             <div class="thumbnail">
+                <a href="Sudoku/GameGrid.html">
+                    <img src="../IMG/Sudoku3.PNG" alt="...">
+                </a>
+            </div>
+            <p>A core-javascript based rendition of the classic 9 number puzzle. Features include:</p>
+          <ul>
+            <li>Hours of limitless entertainment</li>
+            <li>Zero Javascript Frameworks</li>
+            <li>3 mind-boggling difficulty levels</li>
+            <li>HTML5 Canvas driven animations</li>
+            <li>Stimulating Sound Effects</li>
+            <li>100% Free, with non-minified and open-source code available on GitHub</li>
+          </ul>
+          <p><a class="btn btn-default" href="Sudoku/GameGrid.html" role="button">Play Now <span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Mozenda SQA Stats</h2>
+            <div class="thumbnail">
+                <a href="./SQA/mozendaSQA.html">
+                    <img src="../IMG/Mozenda.png" alt="...">
+                </a>
+            </div>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p>
+            <ul>
+            <li>Hours of limitless entertainment</li>
+            <li>Zero Javascript Frameworks</li>
+            <li>3 mind-boggling difficulty levels</li>
+            <li>HTML5 Canvas driven animations</li>
+            <li>Stimulating Sound Effects</li>
+            <li>100% Free, with non-minified and open-source code available on GitHub</li>
+          </ul>
+              <a class="btn btn-default" href="./SQA/mozendaSQA.html" role="button">Check It Out <span class="glyphicon glyphicon-ok-sign"></span></a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Utah Valley University</h2>
+            <div class="thumbnail">
+                <img src="../IMG/UVU.PNG" alt="...">
+            </div>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; 2017 tlindsay.com</p>
+      </footer>
+    </div> <!-- /container -->
 
 
-</body>
-
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
 </html>
